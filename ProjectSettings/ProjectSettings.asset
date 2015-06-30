@@ -259,7 +259,10 @@ PlayerSettings:
   psmSplashimage: {fileID: 0}
   virtualRealitySupported: 0
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    2: GameLogic
+    4: GameLogic
+    7: GameLogic
   metroPackageName: Movie Quotes Challenge
   metroPackageLogo: 
   metroPackageLogo140: 

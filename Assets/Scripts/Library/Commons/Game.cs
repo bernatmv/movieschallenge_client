@@ -7,8 +7,7 @@ namespace com.lovelydog.movieschallenge
 
 		// events for the dispatcher
 		public enum Events {
-			//PLAYER_MOVE,
-
+			AUTH_FINISHED,
 		}
 	}
 }

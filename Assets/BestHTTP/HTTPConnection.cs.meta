@@ -1,0 +1,42 @@
+fileFormatVersion: 2
+guid: c6e10f65ea45b8e4682ebe6a0c885e06
+labels:
+- http
+- www
+- web
+- cache
+- stream
+- wp8
+- wsa
+- metro
+- rest
+- api
+- socket
+- socket.io
+- websocket
+- websockets
+- cookie
+- proxy
+- il2cpp
+- android
+- tcp
+- https
+- ios
+- webrequest
+- signalr
+- server-sentevents
+- eventsource
+- server-sent
+- events
+- authentication
+- samsung
+- smart
+- tv
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
