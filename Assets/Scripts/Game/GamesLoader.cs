@@ -41,20 +41,53 @@ public class GamesLoader : FacadeMonoBehaviour {
 	}
 
 	void buildGamesList(GameModel[] games) {
+		PlayerLeftCategoryProgressScript[] leftCategoriesProgress;
+		PlayerRightCategoryProgressScript[] rightCategoriesProgress;
+		RectTransform gameCanvas;
+		for (int i = 0, l = games.Length; i < l; i++) {
+			gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -100 -(175f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+			gameCanvas.transform.SetParent(gameParent.transform, false);
+			// set the current turn
+			setTurn(games[i], gameCanvas);
+			// set players names
+			setPlayersNames(games[i], gameCanvas);
+			// update categories progress
+			setPlayersCategories(games[i], gameCanvas);
+		}
+	}
+
+	void setTurn(GameModel game, RectTransform gameCanvas) {
+		GameTurnUpdateScript turnDisplay;
+		// set players names
+		turnDisplay = gameCanvas.GetComponentInChildren<GameTurnUpdateScript>();
+		turnDisplay.setTurn (game.turn);
+	}
+	
+	void setPlayersNames(GameModel game, RectTransform gameCanvas) {
 		PlayerLeftNameScript playerLeftName;
 		PlayerRightNameScript playerRightName;
-		RectTransform game;
-		for (int i = 0, l = games.Length; i < l; i++) {
-			game = Instantiate (activeGamePrefab, new Vector2 (-5f, -100 -(175f * i)), Quaternion.Euler(Vector3.zero)) as RectTransform;
-			game.transform.SetParent(gameParent.transform, false);
-			playerLeftName = game.GetComponentInChildren<PlayerLeftNameScript>();
-			if (playerLeftName != null) {
-				playerLeftName.setName("me!");
-			}
-			playerRightName = game.GetComponentInChildren<PlayerRightNameScript>();
-			if (playerRightName != null) {
-				playerRightName.setName("yo!");
-			}
+		// set players names
+		playerLeftName = gameCanvas.GetComponentInChildren<PlayerLeftNameScript>();
+		if (playerLeftName != null) {
+			playerLeftName.setName(game.players.challenger.username);
+		}
+		playerRightName = gameCanvas.GetComponentInChildren<PlayerRightNameScript>();
+		if (playerRightName != null) {
+			playerRightName.setName(game.players.challenged.username);
+		}
+	}
+
+	void setPlayersCategories(GameModel game, RectTransform gameCanvas) {
+		PlayerLeftCategoryProgressScript[] leftCategoriesProgress;
+		PlayerRightCategoryProgressScript[] rightCategoriesProgress;
+		// update categories progress
+		leftCategoriesProgress = gameCanvas.GetComponentsInChildren<PlayerLeftCategoryProgressScript>();
+		foreach (PlayerLeftCategoryProgressScript categoryProgress in leftCategoriesProgress) {
+			categoryProgress.updateCategory(game.players.challenger.categoriesProgress);
+		}
+		rightCategoriesProgress = gameCanvas.GetComponentsInChildren<PlayerRightCategoryProgressScript>();
+		foreach (PlayerRightCategoryProgressScript categoryProgress in rightCategoriesProgress) {
+			categoryProgress.updateCategory(game.players.challenged.categoriesProgress);
 		}
 	}
 }

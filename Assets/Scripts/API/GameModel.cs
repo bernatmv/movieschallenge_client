@@ -4,7 +4,7 @@ using System.Collections;
 public class GameModel {
 
 	public class PlayerModel {
-		public string id;
+		public string username;
 		public int[] categoriesProgress;
 		public string[] questionsAnswered;
 	}
