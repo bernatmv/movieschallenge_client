@@ -24,7 +24,15 @@ public class GamesLoader : FacadeMonoBehaviour {
 
 	// build the scene
 	void buildScene<Event>(Event e) {
+		setTitle ();
 		getGames ();
+	}
+
+	void setTitle() {
+		TitleTextScript titleText;
+		// set title
+		titleText = FindObjectOfType<TitleTextScript>();
+		titleText.setTitle (PlayerPrefs.GetString("username"));
 	}
 
 	// get games from API
@@ -45,7 +53,7 @@ public class GamesLoader : FacadeMonoBehaviour {
 		PlayerRightCategoryProgressScript[] rightCategoriesProgress;
 		RectTransform gameCanvas;
 		for (int i = 0, l = games.Length; i < l; i++) {
-			gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -100 -(175f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+			gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
 			gameCanvas.transform.SetParent(gameParent.transform, false);
 			// set the current turn
 			setTurn(games[i], gameCanvas);

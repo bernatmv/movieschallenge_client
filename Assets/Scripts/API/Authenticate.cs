@@ -11,18 +11,34 @@ public class Authenticate {
 
 	public void authenticate() {
 		if (string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
-			// if there is no token stored, negotiate a new one
-			HTTPRequest req = new HTTPRequest (new System.Uri (Properties.API + "/authenticate"), HTTPMethods.Post, onAuthenticationFinished);
-			req.AddField ("username", "berni");
-			req.AddField ("password", "hanabi");
-			req.Send ();
+			// if the user is not authenticated, load the login
+			Application.LoadLevel("Login");
 		} 
 		else {
-			// send event that we finished authentication and a token is ready
+			// if we already have an authenticated token, send event that we finished authentication and a token is ready
 			this._dispatcher.Dispatch(Game.Events.AUTH_FINISHED);
 		}
 	}
-	
+
+	public void login() {
+		if (string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
+			// if there is no token stored, negotiate a new one
+			doAuthentication();
+		} 
+		else {
+			// if we already have an authenticated token, load the MainMenu
+			Application.LoadLevel("MainMenu");
+		}
+	}
+
+	void doAuthentication() {
+		// if there is no token stored, negotiate a new one
+		HTTPRequest req = new HTTPRequest (new System.Uri (Properties.API + "/authenticate"), HTTPMethods.Post, onAuthenticationFinished);
+		req.AddField ("username", "berni");
+		req.AddField ("password", "hanabi");
+		req.Send ();
+	}
+
 	void onAuthenticationFinished(HTTPRequest req, HTTPResponse res) {
 		JsonReader json = new JsonReader (res.DataAsText);
 		json.SkipNonMembers = true;
@@ -32,11 +48,13 @@ public class Authenticate {
 		if (token != null) {
 			// save to player preferences
 			PlayerPrefs.SetString ("token", token.token);
-			// send event that we finished authentication and a token is ready
-			this._dispatcher.Dispatch(Game.Events.AUTH_FINISHED);
+			PlayerPrefs.SetString ("username", token.username);
+			// when we finish the authentication process, load the main menu
+			Application.LoadLevel("MainMenu");
 		}
-		// authentication erroneous, send to login
+		// authentication erroneous, show error message
 		else {
+			//TODO: show error message
 		}
 	}
 }

@@ -5,4 +5,5 @@ public class Token {
 
 	public bool success = false;
 	public string token = "";
+	public string username = "";
 }
