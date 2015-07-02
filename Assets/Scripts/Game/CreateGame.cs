@@ -8,8 +8,8 @@ public class CreateGame : FacadeMonoBehaviour {
 
 	// create a new game
 	public void createGame() {
-		string challenger = "berni";
-		string challenged = "gemmins";
+		string challenger = PlayerPrefs.GetString("username");
+		string challenged = (challenger == "berni") ? "gemmins" : "berni";
 		Debug.Log (PlayerPrefs.GetString("token"));
 		HTTPRequest request = new HTTPRequest (new System.Uri (Properties.API + "/game"), HTTPMethods.Post, (HTTPRequest req, HTTPResponse res) => {
 			//TODO: jump to the new game

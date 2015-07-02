@@ -55,6 +55,8 @@ public class GamesLoader : FacadeMonoBehaviour {
 		for (int i = 0, l = games.Length; i < l; i++) {
 			gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
 			gameCanvas.transform.SetParent(gameParent.transform, false);
+			// set payload
+			setPayload(games[i], gameCanvas);
 			// set the current turn
 			setTurn(games[i], gameCanvas);
 			// set players names
@@ -64,6 +66,13 @@ public class GamesLoader : FacadeMonoBehaviour {
 		}
 	}
 
+	void setPayload(GameModel game, RectTransform gameCanvas) {
+		GamePayloadScript gamePayload;
+		// set players names
+		gamePayload = gameCanvas.GetComponentInChildren<GamePayloadScript>();
+		gamePayload.gameId = game._id;
+	}
+	
 	void setTurn(GameModel game, RectTransform gameCanvas) {
 		GameTurnUpdateScript turnDisplay;
 		// set players names

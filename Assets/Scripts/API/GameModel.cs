@@ -14,6 +14,7 @@ public class GameModel {
 		public PlayerModel challenged;
 	}
 
+	public string _id;
 	public int turn;
 	public PlayersGroup players;
 	public string[] plays;
