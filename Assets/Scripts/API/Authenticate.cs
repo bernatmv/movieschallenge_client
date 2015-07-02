@@ -20,10 +20,10 @@ public class Authenticate {
 		}
 	}
 
-	public void login() {
+	public void login(string username, string password) {
 		if (string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
 			// if there is no token stored, negotiate a new one
-			doAuthentication();
+			doAuthentication(username, password);
 		} 
 		else {
 			// if we already have an authenticated token, load the MainMenu
@@ -31,11 +31,11 @@ public class Authenticate {
 		}
 	}
 
-	void doAuthentication() {
+	void doAuthentication(string username, string password) {
 		// if there is no token stored, negotiate a new one
 		HTTPRequest req = new HTTPRequest (new System.Uri (Properties.API + "/authenticate"), HTTPMethods.Post, onAuthenticationFinished);
-		req.AddField ("username", "berni");
-		req.AddField ("password", "hanabi");
+		req.AddField ("username", username);
+		req.AddField ("password", password);
 		req.Send ();
 	}
 
