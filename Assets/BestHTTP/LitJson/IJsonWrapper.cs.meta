@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 39c0cc3423d063c4db4ce453eb374740
+guid: db4954c0960d19d4996b2ad47fdc364d
 labels:
 - http
 - www
@@ -32,19 +32,11 @@ labels:
 - samsung
 - smart
 - tv
-PluginImporter:
-  serializedVersion: 1
-  iconMap: {}
-  executionOrder: {}
-  isPreloaded: 0
-  platformData:
-    Any:
-      enabled: 1
-      settings: {}
-    Editor:
-      enabled: 0
-      settings:
-        DefaultValueInitialized: true
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
