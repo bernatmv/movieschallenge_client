@@ -12,7 +12,12 @@ public class CreateGame : FacadeMonoBehaviour {
 		string challenged = (challenger == "berni") ? "gemmins" : "berni";
 		Debug.Log (PlayerPrefs.GetString("token"));
 		HTTPRequest request = new HTTPRequest (new System.Uri (Properties.API + "/game"), HTTPMethods.Post, (HTTPRequest req, HTTPResponse res) => {
-			//TODO: jump to the new game
+			// get id from response
+			NewRegisterModel newGame = JsonMapper.ToObject<NewRegisterModel> (res.DataAsText);
+			// save game id to player pref to be retrieved later in the next scene
+			PlayerPrefs.SetString ("gameId", newGame.id);
+			// load the next scene
+			Application.LoadLevel ("Game");
 		});
 		request.AddField ("challenger", challenger);
 		request.AddField ("challenged", challenged);
