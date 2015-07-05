@@ -7,50 +7,42 @@ using System.Linq;
 // Developed by Lovely Dog Studio
 namespace com.lovelydog.events {
 
-	public sealed class Dispatcher<T> : IDispatcher<T> {
+	public sealed class Dispatcher<T> {
 
 		// properties
 		private static readonly Dispatcher<T> _instance = new Dispatcher<T>();
-		private Dictionary<T, List<Action<IEvent>>> _signal = new Dictionary<T, List<Action<IEvent>>>();
-		private Event _nullEvent = new Event();
+		private Dictionary<string, List<Action<T>>> _signal = new Dictionary<string, List<Action<T>>>();
 
 		// private methods
 		private Dispatcher () {}		
-
-		private void DispatchEvent (T eventId, IEvent eventData) {
-			List<Action<IEvent>> list;
-			if (_signal.TryGetValue (eventId, out list)) {
-				foreach (Action<IEvent> callback in list) {
-					callback (eventData);
-				}
-			}
-		}
 
 		// public methods
 		public static Dispatcher<T> Instance {
 			get { return _instance; }
 		}
 
-		public void Dispatch(T eventId, IEvent eventData = null) {
-			if (eventData == null) {
-				eventData = _nullEvent;
+		public void Dispatch(string eventId, T eventData = default(T)) {
+			List<Action<T>> list;
+			if (_signal.TryGetValue (eventId, out list)) {
+				foreach (Action<T> callback in list) {
+					callback (eventData);
+				}
 			}
-			DispatchEvent (eventId, eventData);
 		}
 
-		public void AddListener(T eventId, Action<IEvent> callback) {
-			List<Action<IEvent>> list;
+		public void AddListener(string eventId, Action<T> callback) {
+			List<Action<T>> list;
 			if (!_signal.TryGetValue (eventId, out list)) {
-				list = new List<Action<IEvent>>();
+				list = new List<Action<T>>();
 			}
 			list.Add(callback);
 			_signal[eventId] = list;
 		}
 
-		public void RemoveListener(T eventId, Action<IEvent> callback) {
-			List<Action<IEvent>> list;
+		public void RemoveListener(string eventId, Action<T> callback) {
+			List<Action<T>> list;
 			if (_signal.TryGetValue (eventId, out list)) {
-				Action<IEvent> itemToRemove = list.SingleOrDefault(e => e == callback);
+				Action<T> itemToRemove = list.SingleOrDefault(e => e == callback);
 				if (itemToRemove != null) {
 					list.Remove(itemToRemove);
 					_signal[eventId] = list;
@@ -59,7 +51,7 @@ namespace com.lovelydog.events {
 		}
 		
 		public void Reset () {
-			_signal = new Dictionary<T, List<Action<IEvent>>>();
+			_signal = new Dictionary<string, List<Action<T>>>();
 		}
 	}
 }

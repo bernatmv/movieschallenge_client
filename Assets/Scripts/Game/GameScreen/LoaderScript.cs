@@ -39,6 +39,8 @@ public class LoaderScript : FacadeMonoBehaviour {
 	void buildScene(GameModel game) {
 		// set title
 		setTitle (game);
+		// set challenger categories progress
+		_dispatcher.Dispatch ("update_player_categories", game);
 	}
 
 	void setTitle(GameModel game) {

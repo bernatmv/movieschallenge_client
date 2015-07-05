@@ -1863,7 +1863,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_AnchoredPosition.y

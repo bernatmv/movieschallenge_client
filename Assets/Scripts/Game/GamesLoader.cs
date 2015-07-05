@@ -13,7 +13,7 @@ public class GamesLoader : FacadeMonoBehaviour {
 
 	void Awake() {
 		// bind events
-		this._dispatcher.AddListener (Game.Events.AUTH_FINISHED, buildScene);
+		this._dispatcher.AddListener ("auth_finished", buildScene);
 	}
 
 	void Start () {
@@ -23,7 +23,7 @@ public class GamesLoader : FacadeMonoBehaviour {
 	}
 
 	// build the scene
-	void buildScene<Event>(Event e) {
+	void buildScene(Object param) {
 		setTitle ();
 		getGames ();
 	}

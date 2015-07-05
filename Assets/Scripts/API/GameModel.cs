@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameModel {
+public class GameModel : Object {
 
 	public class PlayerModel {
 		public string username;

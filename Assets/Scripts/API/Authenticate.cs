@@ -7,7 +7,7 @@ using LitJson;
 
 public class Authenticate {
 	
-	protected Dispatcher<Game.Events> _dispatcher = Dispatcher<Game.Events>.Instance;
+	protected Dispatcher<Object> _dispatcher = Dispatcher<Object>.Instance;
 
 	public void authenticate() {
 		if (string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
@@ -16,7 +16,7 @@ public class Authenticate {
 		} 
 		else {
 			// if we already have an authenticated token, send event that we finished authentication and a token is ready
-			this._dispatcher.Dispatch(Game.Events.AUTH_FINISHED);
+			_dispatcher.Dispatch("auth_finished");
 		}
 	}
 
