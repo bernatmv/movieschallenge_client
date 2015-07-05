@@ -1,14 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using com.lovelydog.movieschallenge;
 
 public class PlayerCategoryScript : FacadeMonoBehaviour {
 
+	public int categoryId = 0;
+	public bool challenger = true;
+	public Color color;
+
 	void Awake () {
 		_dispatcher.AddListener ("update_player_categories", updateCategories);
 	}
 
-	void updateCategories(Object categories) {
-		Debug.Log (categories);
+	void updateCategories(Object game) {
+		Image categoryImage;
+		int[] categories;
+		if (challenger) {
+			categories = ((GameModel) game).players.challenger.categoriesProgress;
+		}
+		else {
+			categories = ((GameModel) game).players.challenged.categoriesProgress;
+		}
+		if (categories [categoryId - 1] == 3) {
+			categoryImage = transform.GetComponent<Image>();
+			categoryImage.color = color;
+		}
 	}
 }
