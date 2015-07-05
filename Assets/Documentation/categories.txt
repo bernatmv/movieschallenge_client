@@ -1,0 +1,20 @@
+
+CATEGORIES
+	1 >>	Purple
+		9564AD
+		149, 100, 173
+	2 >>	Red
+		F46F6E
+		244, 111, 110
+	3 >>	Blue
+		1FB8DE
+		31, 184, 222
+	4 >>	Green
+		1BD3B1
+		27, 211, 177
+	5 >>	Orange
+		FABB3B
+		250, 187, 59
+	6 >>	Brown
+		9D671C
+		157, 103, 28
