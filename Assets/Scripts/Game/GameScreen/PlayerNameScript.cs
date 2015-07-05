@@ -8,7 +8,7 @@ public class PlayerNameScript : FacadeMonoBehaviour {
 	public bool challenger = true;
 
 	void Awake () {
-		_dispatcher.AddListener ("update_player_name", updateName);
+		_dispatcher.AddListener ("set_player_name", updateName);
 	}
 	
 	void updateName(Object game) {

@@ -40,8 +40,8 @@ public class LoaderScript : FacadeMonoBehaviour {
 		// set title
 		setTitle (game);
 		// set the categories and name of the players
-		_dispatcher.Dispatch ("update_player_categories", game);
-		_dispatcher.Dispatch ("update_player_name", game);
+		_dispatcher.Dispatch ("set_player_name", game);
+		_dispatcher.Dispatch ("update_categories", game);
 	}
 
 	void setTitle(GameModel game) {

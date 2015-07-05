@@ -10,7 +10,7 @@ public class PlayerCategoryScript : FacadeMonoBehaviour {
 	public Color color;
 
 	void Awake () {
-		_dispatcher.AddListener ("update_player_categories", updateCategories);
+		_dispatcher.AddListener ("update_categories", updateCategories);
 	}
 
 	void updateCategories(Object game) {
