@@ -266,7 +266,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 359851025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 359851027}
+        m_MethodName: play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &359851025
@@ -307,12 +318,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69dd12a8ad76bfa4a8d73ca2858116ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  category1Color: {r: .58431375, g: .392156869, b: .678431392, a: 1}
-  category2Color: {r: .956862748, g: .435294122, b: .431372553, a: 1}
-  category3Color: {r: .121568628, g: .721568644, b: .870588243, a: 1}
-  category4Color: {r: .105882354, g: .827450991, b: .694117665, a: 1}
-  category5Color: {r: .980392158, g: .733333349, b: .23137255, a: 1}
-  category6Color: {r: .615999997, g: .404411793, b: .109100938, a: 1}
+  categoriesColor:
+  - {r: .58431375, g: .392156869, b: .678431392, a: 1}
+  - {r: .956862748, g: .435294122, b: .431372553, a: 1}
+  - {r: .121568628, g: .721568644, b: .870588243, a: 1}
+  - {r: .105882354, g: .827450991, b: .694117665, a: 1}
+  - {r: .980392158, g: .733333349, b: .23137255, a: 1}
+  - {r: .615999997, g: .404411793, b: .109100938, a: 1}
 --- !u!224 &403735619 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22478394, guid: e7f3d3af665fbad41a890c009d02f0f0,
