@@ -1,20 +1,32 @@
 
 CATEGORIES
-	1 >>	Purple
+	1 >>
+		Family
+		Purple
 		9564AD
 		149, 100, 173
-	2 >>	Red
+	2 >>
+		Romantic
+		Red
 		F46F6E
 		244, 111, 110
-	3 >>	Blue
+	3 >>
+		SiFi & fantasy	
+		Blue
 		1FB8DE
 		31, 184, 222
-	4 >>	Green
+	4 >>
+		Humor
+		Green
 		1BD3B1
 		27, 211, 177
-	5 >>	Orange
+	5 >>
+		History & action
+		Orange
 		FABB3B
 		250, 187, 59
-	6 >>	Brown
+	6 >>
+		Other
+		Brown
 		9D671C
 		157, 103, 28

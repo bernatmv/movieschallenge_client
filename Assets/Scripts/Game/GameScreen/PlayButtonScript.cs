@@ -11,18 +11,24 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	public Color[] categoriesColor;
 
 	Image playImage;
+	Image[] questionIcon;
+	Text questionText;
+
 	Button playButton;
+	QuestionModel question = new QuestionModel();
+
 	bool callingAPI = false;
-	bool isChallenger = false;
 	float minimumTime = 3.6f;
 	float elapsedTime = 0f;
-	int iteration = 0;
-	List<int> categories = new List<int> ();
 	float delay = 0.2f;
 	float elapsedDelay = 0f;
+	int iteration = 0;
+	List<int> categories = new List<int> ();
 
 	void Awake() {
 		// get components
+		questionIcon = transform.GetComponentsInChildren<Image> ();
+		questionText = transform.GetComponentInChildren<Text> ();
 		playImage = transform.GetComponent<Image> ();
 		playButton = transform.GetComponent<Button> ();
 		// bind events
@@ -30,20 +36,33 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	}
 
 	public void play() {
-		callingAPI = true;
-		playButton.enabled = false;
+		beginPlay ();
 		// call the API
 		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + PlayerPrefs.GetString("gameId") + "/play"), endAPICall);
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
 	}
 
+	void beginPlay() {
+		// activate icon, deactivate text and button
+		questionIcon[1].enabled = true;
+		questionText.enabled = false;
+		playButton.enabled = false;
+		callingAPI = true;
+	}
+
 	void endAPICall(HTTPRequest req, HTTPResponse res) {
+		// deserialize json
+		question = JsonMapper.ToObject<QuestionModel> (res.DataAsText);
+		// save question
+		PlayerPrefs.SetString ("question", question._id);
+		// end spinning
 		callingAPI = false;
 	}
 
 	void FixedUpdate() {
 		if (callingAPI || (elapsedTime > 0f && elapsedTime < minimumTime)) {
+			// to execute while calling the API
 			elapsedTime += Time.deltaTime;
 			elapsedDelay += Time.deltaTime;
 			if (elapsedDelay >= delay) {
@@ -53,11 +72,24 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 			}
 		} 
 		else {
-			iteration = 0;
-			elapsedDelay = 0f;
-			elapsedTime = 0f;
-			playButton.enabled = true;
+			whileNotCallingTheAPI();
 		}
+	}
+
+	void whileNotCallingTheAPI() {
+		// reset
+		iteration = 0;
+		elapsedDelay = 0f;
+		elapsedTime = 0f;
+		// if a question is stored, set it's color and title
+		if (!string.IsNullOrEmpty(question._id)) {
+			playImage.color = categoriesColor [question.category];
+			questionText.text = Properties.categoriesNames[question.category - 1];
+		}
+		// enable button, disable question icon
+		playButton.enabled = true;
+		questionIcon[1].enabled = false;
+		questionText.enabled = true;
 	}
 
 	void updateCategories(Object game) {
@@ -66,7 +98,6 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		categories.Clear ();
 		// check if it's challenger or challenged and fill the categories appropiatedly
 		if (PlayerPrefs.GetString ("username") == ((GameModel) game).players.challenger.username) {
-			isChallenger = true;
 			categoriesProgress = ((GameModel) game).players.challenger.categoriesProgress;
 		} 
 		else {
