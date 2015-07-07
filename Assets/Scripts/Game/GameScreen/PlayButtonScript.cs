@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
@@ -12,15 +13,20 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	Image playImage;
 	Button playButton;
 	bool callingAPI = false;
-	float minimumTime = 2.4f;
+	bool isChallenger = false;
+	float minimumTime = 3.6f;
 	float elapsedTime = 0f;
 	int iteration = 0;
-	float delay = .2f;
+	List<int> categories = new List<int> ();
+	float delay = 0.2f;
 	float elapsedDelay = 0f;
 
 	void Awake() {
+		// get components
 		playImage = transform.GetComponent<Image> ();
 		playButton = transform.GetComponent<Button> ();
+		// bind events
+		_dispatcher.AddListener ("update_categories", updateCategories);
 	}
 
 	public void play() {
@@ -42,8 +48,8 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 			elapsedDelay += Time.deltaTime;
 			if (elapsedDelay >= delay) {
 				elapsedDelay = 0f;
-				playImage.color = categoriesColor [iteration];
-				iteration = (iteration + 1) % categoriesColor.Length;
+				playImage.color = categoriesColor [categories[iteration]];
+				iteration = (iteration + 1) % categories.Count;
 			}
 		} 
 		else {
@@ -51,6 +57,31 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 			elapsedDelay = 0f;
 			elapsedTime = 0f;
 			playButton.enabled = true;
+		}
+	}
+
+	void updateCategories(Object game) {
+		int[] categoriesProgress;
+		// clear categories
+		categories.Clear ();
+		// check if it's challenger or challenged and fill the categories appropiatedly
+		if (PlayerPrefs.GetString ("username") == ((GameModel) game).players.challenger.username) {
+			isChallenger = true;
+			categoriesProgress = ((GameModel) game).players.challenger.categoriesProgress;
+		} 
+		else {
+			categoriesProgress = ((GameModel) game).players.challenged.categoriesProgress;
+		}
+		// add categories not yet completed
+		for (int i = 0; i < categoriesProgress.Length; i++) {
+			if (categoriesProgress[i] < 3) {
+				categories.Add(i);
+			}
+		}
+		// update minimumTime
+		minimumTime = categories.Count * 0.6f;
+		if (minimumTime < 2.0f) {
+			minimumTime = 2.0f;
 		}
 	}
 }
