@@ -5,28 +5,34 @@ CATEGORIES
 		Purple
 		9564AD
 		149, 100, 173
+		238, 119, 204
 	2 >>
 		Romantic
 		Red
 		F46F6E
 		244, 111, 110
+		255, 238, 0
 	3 >>
 		SiFi & fantasy	
 		Blue
 		1FB8DE
 		31, 184, 222
+		0, 187, 255
 	4 >>
 		Humor
 		Green
 		1BD3B1
 		27, 211, 177
+		34, 221, 34
 	5 >>
 		History & action
 		Orange
 		FABB3B
 		250, 187, 59
+		255, 102, 51
 	6 >>
 		Other
 		Brown
 		9D671C
 		157, 103, 28
+		170, 119, 85
