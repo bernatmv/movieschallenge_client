@@ -1522,7 +1522,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452344, guid: 7ee526b22e0b41d40a8f7fcc51c5cd84, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -170
+      value: -320
       objectReference: {fileID: 0}
     - target: {fileID: 22452344, guid: 7ee526b22e0b41d40a8f7fcc51c5cd84, type: 2}
       propertyPath: m_SizeDelta.x
@@ -1530,7 +1530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452344, guid: 7ee526b22e0b41d40a8f7fcc51c5cd84, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 22452344, guid: 7ee526b22e0b41d40a8f7fcc51c5cd84, type: 2}
       propertyPath: m_AnchorMin.x
@@ -2182,26 +2182,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd1f47ddf6b2bfe4bae4737ef778357c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1602048415 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 159932, guid: 7ee526b22e0b41d40a8f7fcc51c5cd84, type: 2}
-  m_PrefabInternal: {fileID: 1111783266}
 --- !u!224 &1602048416 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22452344, guid: 7ee526b22e0b41d40a8f7fcc51c5cd84,
     type: 2}
   m_PrefabInternal: {fileID: 1111783266}
---- !u!114 &1602048417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1602048415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8300b77b9bd734743b2b9d50c52525f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1658400725
 Prefab:
   m_ObjectHideFlags: 0

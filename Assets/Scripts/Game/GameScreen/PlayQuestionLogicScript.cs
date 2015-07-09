@@ -8,21 +8,25 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 	QuestionModel question = new QuestionModel();
 	QuoteScript quote;
 	AnswerScript[] answers;
+	CanvasGroup canvas;
 
 	void Awake() {
 		// get components
 		quote = transform.GetComponentInChildren<QuoteScript> ();
 		answers = transform.GetComponentsInChildren<AnswerScript> ();
+		canvas = transform.GetComponent<CanvasGroup> ();
 		// bind events
 		_dispatcher.AddListener ("question_loaded", buildScene);
 	}
 
 	public void hide() {
-		transform.GetComponent<CanvasGroup> ().alpha = 0;
+		canvas.alpha = 0;
+		canvas.blocksRaycasts = false;
 	}
 
 	public void show() {
-		transform.GetComponent<CanvasGroup> ().alpha = 1;
+		canvas.alpha = 1;
+		canvas.blocksRaycasts = true;
 	}
 
 	void buildScene(Object data) {
