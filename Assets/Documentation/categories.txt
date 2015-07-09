@@ -36,3 +36,10 @@ CATEGORIES
 		9D671C
 		157, 103, 28
 		170, 119, 85
+
+
+QUERIES
+
+	db.getCollection('questions').update({approved: 0}, { $set: { approved: NumberInt(1) } }, { multi: true })
+
+	db.getCollection('questions').remove({})

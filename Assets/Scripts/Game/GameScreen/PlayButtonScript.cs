@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using com.lovelydog.movieschallenge;
@@ -18,6 +19,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	QuestionModel question = new QuestionModel();
 
 	bool callingAPI = false;
+	bool spinFlag = false;
 	float minimumTime = 3.6f;
 	float elapsedTime = 0f;
 	float delay = 0.2f;
@@ -54,7 +56,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	void endAPICall(HTTPRequest req, HTTPResponse res) {
 		// deserialize json
 		question = JsonMapper.ToObject<QuestionModel> (res.DataAsText);
-		// save question
+		// save questionId
 		PlayerPrefs.SetString ("question", question._id);
 		// end spinning
 		callingAPI = false;
@@ -62,6 +64,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 
 	void FixedUpdate() {
 		if (callingAPI || (elapsedTime > 0f && elapsedTime < minimumTime)) {
+			spinFlag = true;
 			// to execute while calling the API
 			elapsedTime += Time.deltaTime;
 			elapsedDelay += Time.deltaTime;
@@ -72,18 +75,28 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 			}
 		} 
 		else {
-			whileNotCallingTheAPI();
+			if (spinFlag) {
+				spinFlag = false;
+				// reset properties
+				resetProperties();
+				// signal question loaded after 1 second
+				StartCoroutine(
+					delayAction(() => {
+						_dispatcher.Dispatch ("question_loaded", question);
+					}, 0.6f)
+				);
+			}
 		}
 	}
 
-	void whileNotCallingTheAPI() {
+	void resetProperties() {
 		// reset
 		iteration = 0;
 		elapsedDelay = 0f;
 		elapsedTime = 0f;
 		// if a question is stored, set it's color and title
 		if (!string.IsNullOrEmpty(question._id)) {
-			playImage.color = categoriesColor [question.category];
+			playImage.color = categoriesColor [question.category - 1];
 			questionText.text = Properties.categoriesNames[question.category - 1];
 		}
 		// enable button, disable question icon
@@ -92,7 +105,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		questionText.enabled = true;
 	}
 
-	void updateCategories(Object game) {
+	void updateCategories(UnityEngine.Object game) {
 		int[] categoriesProgress;
 		// clear categories
 		categories.Clear ();

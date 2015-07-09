@@ -9,6 +9,9 @@ public class GameCategoryScript : FacadeMonoBehaviour {
 
 	void Awake () {
 		_dispatcher.AddListener ("update_categories", updateCategories);
+		// set color
+		Image[] hexImages = transform.GetComponentsInChildren<Image> ();
+		hexImages [0].color = Properties.categoriesColor [categoryId - 1];
 	}
 	
 	void updateCategories(Object gameData) {

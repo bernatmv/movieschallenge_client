@@ -20,6 +20,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 		} 
 		else {
 			// TODO: show error and redirect to main menu
+			Application.LoadLevel("MainMenu");
 		}
 	}
 	

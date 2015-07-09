@@ -24,7 +24,7 @@ public class PlayerCategoryScript : FacadeMonoBehaviour {
 		}
 		if (categories [categoryId - 1] == 3) {
 			categoryImage = transform.GetComponent<Image>();
-			categoryImage.color = color;
+			categoryImage.color = Properties.categoriesColor[categoryId - 1];
 		}
 	}
 }
