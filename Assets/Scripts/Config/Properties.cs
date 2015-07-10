@@ -29,6 +29,8 @@ public static class Properties {
 		newRGBColor(255, 102, 51, 255),
 		newRGBColor(170, 119, 85, 255)
 	};
+	public static Color colorRight = new Color(43/255f, 237/255f, 140/255f, 255/255f);
+	public static Color colorWrong = new Color(216/255f, 100/255f, 89/255f, 255/255f);
 
 	public static Color newRGBColor(int red, int green, int blue, int alpha = 255) {
 		return new Color(red/255f, green/255f, blue/255f, alpha/255f);

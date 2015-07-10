@@ -57,6 +57,7 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 		for (int i = 0; i < answers.Length; i++) {
 			if (i == correct) {
 				answers[i].setAnswer(question.correctAnswer);
+				answers[i].markAsCorrect();
 			}
 			else {
 				answers[i].setAnswer(question.otherAnswers[i]);

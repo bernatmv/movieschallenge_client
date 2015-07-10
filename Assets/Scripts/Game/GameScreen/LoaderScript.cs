@@ -23,9 +23,9 @@ public class LoaderScript : FacadeMonoBehaviour {
 			Application.LoadLevel("MainMenu");
 		}
 	}
-	
+
 	// get game info from API
-	void getGame() {
+	public void getGame() {
 		// get all the games
 		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + _gameId), (HTTPRequest req, HTTPResponse res) => {
 			// deserialize json

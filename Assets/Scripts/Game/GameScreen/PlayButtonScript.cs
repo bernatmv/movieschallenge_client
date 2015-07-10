@@ -57,7 +57,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		// deserialize json
 		question = JsonMapper.ToObject<QuestionModel> (res.DataAsText);
 		// save questionId
-		PlayerPrefs.SetString ("question", question._id);
+		PlayerPrefs.SetString ("questionId", question._id);
 		// end spinning
 		callingAPI = false;
 	}

@@ -53,5 +53,9 @@ namespace com.lovelydog.events {
 		public void Reset () {
 			_signal = new Dictionary<string, List<Action<T>>>();
 		}
+
+		public void Noop () {
+			// noop
+		}
 	}
 }
