@@ -13,6 +13,8 @@ public class AnswerScript : FacadeMonoBehaviour {
 	Button answerButton;
 	Text answerText;
 	Image answerImage;
+	bool responseRdy = false;
+	bool waitRdy = false;
 
 	void Awake() {
 		//get components
@@ -42,20 +44,19 @@ public class AnswerScript : FacadeMonoBehaviour {
 	}
 
 	public void chooseThis() {
+		responseRdy = false;
+		waitRdy = false;
 		// disable buttons
 		_dispatcher.Dispatch ("disable_answers");
 		// animate answer while calling the server
 		animateAnswer ();
 		// send answer to the server
 		sendAnswer ();
-		// recover updated game and rebuild game scene
-
-		// hide question scene and reset it
-
+		StartCoroutine(delayAction (answerWait, 1.5f));
 	}
 
 	void sendAnswer() {
-		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + PlayerPrefs.GetString("gameId") + "/answer/" + PlayerPrefs.GetString("questionId")), HTTPMethods.Post, processAnswer);
+		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + PlayerPrefs.GetString("gameId") + "/answer/" + PlayerPrefs.GetString("questionId")), HTTPMethods.Post, responseReady);
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.AddField ("answer", answerText.text);
 		request.AddField ("correct", correctAnswer.ToString());
@@ -63,15 +64,36 @@ public class AnswerScript : FacadeMonoBehaviour {
 		request.Send ();
 	}
 
-	void processAnswer(HTTPRequest req, HTTPResponse res) {
-		// animate answer
+	void responseReady(HTTPRequest req, HTTPResponse res) {
+		responseRdy = true;
+		// call process response to sync with wait
 		Debug.Log (res.DataAsText);
+		processResponse ();
+	}
+
+	void answerWait() {
+		waitRdy = true;
+		// call process response to sync with api call
+		processResponse ();
+	}
+
+	void processResponse() {
+		if (responseRdy && waitRdy) {
+			// if response is OK, reset question and update game with the new data
+			
+			// if response is not OK, reset question and set game blocked with update pending
+			Debug.Log ("end");
+		}
 	}
 
 	void animateAnswer() {
-		// if it's not the correct answer, set color of button to red
+		// if it's not the correct answer, set color of button to red and show the appropiate message
 		if (!correctAnswer) {
 			answerImage.color = Properties.colorWrong;
+			_dispatcher.Dispatch("message_wrong_show");
+		} 
+		else {
+			_dispatcher.Dispatch("message_correct_show");
 		}
 	}
 
@@ -80,7 +102,8 @@ public class AnswerScript : FacadeMonoBehaviour {
 		answerButton.interactable = false;
 		// if it's the correct answer, set color green
 		if (correctAnswer) {
-			answerImage.color = Properties.colorRight;
+			// disabled to make it more challenging
+			//answerImage.color = Properties.colorRight; 
 		}
 	}
 
