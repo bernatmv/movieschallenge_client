@@ -35,7 +35,9 @@ public class GameCategoryScript : FacadeMonoBehaviour {
 			categoryImages[3].enabled = false;
 		}
 		if (categories [categoryId - 1] > 2) {
-			categoryImages[4].enabled = false;
+			categoryImages [4].enabled = false;
+		}
+		if (categories [categoryId - 1] > 3) {
 			categoryImages[1].enabled = true;
 		}
 	}

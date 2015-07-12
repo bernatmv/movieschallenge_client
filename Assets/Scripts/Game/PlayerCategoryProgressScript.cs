@@ -9,7 +9,7 @@ public class PlayerCategoryProgressScript : MonoBehaviour {
 	public void updateCategory(int[] progress) {
 		if (category > 0) {
 			int index = category - 1;
-			transform.GetComponent<Image> ().enabled = (progress[index] == 1) ? true : false;
+			transform.GetComponent<Image> ().enabled = (progress[index] >= 4) ? true : false;
 		}
 	}
 }

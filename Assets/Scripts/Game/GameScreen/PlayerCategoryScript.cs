@@ -22,7 +22,7 @@ public class PlayerCategoryScript : FacadeMonoBehaviour {
 		else {
 			categories = ((GameModel) game).players.challenged.categoriesProgress;
 		}
-		if (categories [categoryId - 1] == 3) {
+		if (categories [categoryId - 1] == 4) {
 			categoryImage = transform.GetComponent<Image>();
 			categoryImage.color = Properties.categoriesColor[categoryId - 1];
 		}
