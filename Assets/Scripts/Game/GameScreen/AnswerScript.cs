@@ -10,6 +10,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 	public int answer;
 	public bool correctAnswer = false;
 
+	GameModel game;
 	Button answerButton;
 	Text answerText;
 	Image answerImage;
@@ -24,6 +25,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		// bind events
 		_dispatcher.AddListener ("disable_answers", disableAnswer);
 		_dispatcher.AddListener ("enable_answers", enableAnswer);
+		_dispatcher.AddListener ("reset_answers", resetAnswer);
 	}
 
 	public void setAnswer(string answer) {
@@ -66,8 +68,9 @@ public class AnswerScript : FacadeMonoBehaviour {
 
 	void responseReady(HTTPRequest req, HTTPResponse res) {
 		responseRdy = true;
+		// deserialize json
+		game = JsonMapper.ToObject<GameModel> (res.DataAsText);
 		// call process response to sync with wait
-		Debug.Log (res.DataAsText);
 		processResponse ();
 	}
 
@@ -80,7 +83,9 @@ public class AnswerScript : FacadeMonoBehaviour {
 	void processResponse() {
 		if (responseRdy && waitRdy) {
 			// if response is OK, reset question and update game with the new data
-			
+			if (game != null) {
+				_dispatcher.Dispatch("update_game", game);
+			}
 			// if response is not OK, reset question and set game blocked with update pending
 			Debug.Log ("end");
 		}
@@ -112,5 +117,12 @@ public class AnswerScript : FacadeMonoBehaviour {
 		answerButton.interactable = true;
 		// reet button to it's former color
 		answerImage.color = Color.white;
+	}
+
+	void resetAnswer(Object param) {
+		// reset values
+		reset();
+		// enable answer
+		enableAnswer (param);
 	}
 }

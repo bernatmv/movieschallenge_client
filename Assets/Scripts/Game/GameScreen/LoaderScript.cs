@@ -10,7 +10,10 @@ public class LoaderScript : FacadeMonoBehaviour {
 	string _gameId;
 
 	void Awake() {
+		// get gameId
 		_gameId = PlayerPrefs.GetString ("gameId");
+		// bind events
+		_dispatcher.AddListener ("update_game", updateGame);
 	}
 
 	void Start () {
@@ -50,5 +53,12 @@ public class LoaderScript : FacadeMonoBehaviour {
 		// set title
 		titleText = FindObjectOfType<TitleTextScript>();
 		titleText.setTitle ("Turn " + game.turn);
+	}
+
+	void updateGame(Object data) {
+		// re-build scene
+		buildScene (((GameModel)data));
+		// reset question-answers
+		_dispatcher.Dispatch ("reset_answers");
 	}
 }

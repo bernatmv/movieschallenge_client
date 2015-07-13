@@ -22,4 +22,5 @@ public class GameModel : Object {
 	public bool ended;
 	public string lastPlay;
 	public string winner;
+	public string creator;
 }
