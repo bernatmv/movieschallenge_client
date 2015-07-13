@@ -17,7 +17,7 @@ public class GameModel : Object {
 	public string _id;
 	public int turn;
 	public PlayersGroup players;
-	public string[] plays;
+	public PlayModel[] plays;
 	public string thisTurn;
 	public bool ended;
 	public string lastPlay;
