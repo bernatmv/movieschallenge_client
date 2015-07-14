@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using com.lovelydog.events;
+using com.lovelydog;
 
 namespace com.lovelydog.movieschallenge
 {
@@ -10,6 +10,7 @@ namespace com.lovelydog.movieschallenge
 		protected Dispatcher<UnityEngine.Object> _dispatcher = Dispatcher<UnityEngine.Object>.Instance;
 		// instantiate world object
 		protected World _world = World.Instance;
+		protected Language _i18n = Language.Instance;
 
 		public IEnumerator delayAction(Action callback, float seconds) {
 			yield return new WaitForSeconds (seconds);

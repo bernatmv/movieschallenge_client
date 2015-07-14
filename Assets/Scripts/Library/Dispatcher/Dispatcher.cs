@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 // Developed by Lovely Dog Studio
-namespace com.lovelydog.events {
+namespace com.lovelydog {
 
 	public sealed class Dispatcher<T> {
 

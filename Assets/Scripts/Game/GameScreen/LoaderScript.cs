@@ -32,9 +32,9 @@ public class LoaderScript : FacadeMonoBehaviour {
 		// get all the games
 		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + _gameId), (HTTPRequest req, HTTPResponse res) => {
 			// deserialize json
-			GameModel games = JsonMapper.ToObject<GameModel> (res.DataAsText);
+			GameModel game = JsonMapper.ToObject<GameModel> (res.DataAsText);
 			// build scene
-			buildScene(games);
+			buildScene(game);
 		});
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
@@ -46,6 +46,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 		// set the categories and name of the players
 		_dispatcher.Dispatch ("set_player_name", game);
 		_dispatcher.Dispatch ("update_categories", game);
+		_dispatcher.Dispatch ("enable_play_button", game);
 	}
 
 	void setTitle(GameModel game) {

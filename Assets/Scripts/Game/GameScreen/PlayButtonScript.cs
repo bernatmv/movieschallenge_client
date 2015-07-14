@@ -35,6 +35,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		playButton = transform.GetComponent<Button> ();
 		// bind events
 		_dispatcher.AddListener ("update_categories", updateCategories);
+		_dispatcher.AddListener ("enable_play_button", enableButton);
 	}
 
 	public void play() {
@@ -99,10 +100,21 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 			playImage.color = categoriesColor [question.category - 1];
 			questionText.text = Properties.categoriesNames[question.category - 1];
 		}
-		// enable button, disable question icon
-		playButton.enabled = true;
-		questionIcon[1].enabled = false;
-		questionText.enabled = true;
+	}
+
+	void enableButton(UnityEngine.Object game) {
+		if (PlayerPrefs.GetString ("username") == ((GameModel)game).thisTurn) {
+			// enable button, disable question icon
+			playButton.enabled = true;
+			questionIcon [1].enabled = false;
+			questionText.enabled = true;
+		} 
+		else {
+			// disable button, enable not your turn text
+			playButton.enabled = false;
+			questionIcon [1].enabled = false;
+			questionText.text = "Not your turn";
+		}
 	}
 
 	void updateCategories(UnityEngine.Object game) {
