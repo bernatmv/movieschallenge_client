@@ -17,6 +17,7 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 		canvas = transform.GetComponent<CanvasGroup> ();
 		// bind events
 		_dispatcher.AddListener ("question_loaded", buildScene);
+		_dispatcher.AddListener ("update_game", endPlay);
 	}
 
 	public void hide() {
@@ -67,5 +68,9 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 
 	void openQuote() {
 		quote.openQuote ();
+	}
+
+	void endPlay(Object data) {
+		hide ();
 	}
 }

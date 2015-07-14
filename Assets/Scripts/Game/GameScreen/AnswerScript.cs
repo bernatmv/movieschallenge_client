@@ -54,7 +54,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		animateAnswer ();
 		// send answer to the server
 		sendAnswer ();
-		StartCoroutine(delayAction (answerWait, 1.5f));
+		StartCoroutine(delayAction (answerWait, 1f));
 	}
 
 	void sendAnswer() {
@@ -83,11 +83,11 @@ public class AnswerScript : FacadeMonoBehaviour {
 	void processResponse() {
 		if (responseRdy && waitRdy) {
 			// if response is OK, reset question and update game with the new data
-			if (game != null) {
+			if (!string.IsNullOrEmpty(((GameModel)game)._id)) {
 				_dispatcher.Dispatch("update_game", game);
 			}
 			// if response is not OK, reset question and set game blocked with update pending
-			Debug.Log ("end");
+			//TODO: better error handling
 		}
 	}
 
