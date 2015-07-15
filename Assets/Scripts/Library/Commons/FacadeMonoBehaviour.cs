@@ -6,11 +6,12 @@ using com.lovelydog;
 namespace com.lovelydog.movieschallenge
 {
 	public class FacadeMonoBehaviour : MonoBehaviour {
-		// instantiate dispatcher
+		// instantiate singletons
 		protected Dispatcher<UnityEngine.Object> _dispatcher = Dispatcher<UnityEngine.Object>.Instance;
-		// instantiate world object
 		protected World _world = World.Instance;
 		protected Language _i18n = Language.Instance;
+		// instantiate properties
+		protected Utils _utils = new Utils();
 
 		public IEnumerator delayAction(Action callback, float seconds) {
 			yield return new WaitForSeconds (seconds);

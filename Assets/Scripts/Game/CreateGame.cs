@@ -17,7 +17,7 @@ public class CreateGame : FacadeMonoBehaviour {
 			// save game id to player pref to be retrieved later in the next scene
 			PlayerPrefs.SetString ("gameId", newGame.id);
 			// load the next scene
-			Application.LoadLevel ("Game");
+			_utils.loadScene("Game");
 		});
 		request.AddField ("challenger", challenger);
 		request.AddField ("challenged", challenged);

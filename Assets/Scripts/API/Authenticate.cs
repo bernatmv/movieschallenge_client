@@ -8,11 +8,12 @@ using LitJson;
 public class Authenticate {
 	
 	protected Dispatcher<Object> _dispatcher = Dispatcher<Object>.Instance;
+	protected Utils utils = new Utils();
 
 	public void authenticate() {
 		if (string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
 			// if the user is not authenticated, load the login
-			Application.LoadLevel("Login");
+			utils.loadScene("Login");
 		} 
 		else {
 			// if we already have an authenticated token, send event that we finished authentication and a token is ready
@@ -27,7 +28,7 @@ public class Authenticate {
 		} 
 		else {
 			// if we already have an authenticated token, load the MainMenu
-			Application.LoadLevel("MainMenu");
+			utils.loadScene("MainMenu");
 		}
 	}
 
@@ -50,7 +51,7 @@ public class Authenticate {
 			PlayerPrefs.SetString ("token", token.token);
 			PlayerPrefs.SetString ("username", token.username);
 			// when we finish the authentication process, load the main menu
-			Application.LoadLevel("MainMenu");
+			utils.loadScene("MainMenu");
 		}
 		// authentication erroneous, show error message
 		else {

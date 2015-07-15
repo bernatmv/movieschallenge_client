@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.lovelydog.movieschallenge;
 
-public class LoginScript : MonoBehaviour {
+public class LoginScript : FacadeMonoBehaviour {
 
 	[SerializeField] private InputField _username;
 	[SerializeField] private InputField _password;
@@ -11,7 +12,7 @@ public class LoginScript : MonoBehaviour {
 		PlayerPrefs.SetString ("token", ""); //TODO: remove this, it-s just for testing (dirty)
 		if (!string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
 			// if we already have an authenticated token, load the MainMenu
-			Application.LoadLevel("MainMenu");
+			_utils.loadScene("MainMenu");
 		} 
 	}
 

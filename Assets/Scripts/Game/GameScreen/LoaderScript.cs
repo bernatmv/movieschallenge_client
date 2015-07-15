@@ -23,7 +23,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 		} 
 		else {
 			// TODO: show error and redirect to main menu
-			Application.LoadLevel("MainMenu");
+			_utils.loadScene("MainMenu");
 		}
 	}
 
@@ -61,5 +61,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 		buildScene (((GameModel)data));
 		// reset question-answers
 		_dispatcher.Dispatch ("reset_answers");
+		_dispatcher.Dispatch("message_wrong_hide");
+		_dispatcher.Dispatch("message_correct_hide");
 	}
 }

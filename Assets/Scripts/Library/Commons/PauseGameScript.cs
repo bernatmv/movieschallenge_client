@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using com.lovelydog.movieschallenge;
 
-public class PauseGameScript : MonoBehaviour {
+public class PauseGameScript : FacadeMonoBehaviour {
 
 	/*
 	void OnGUI() {
 		if (GUI.Button(new Rect(310,180,200,30), "Restart Level")) {
-			Application.LoadLevel (Application.loadedLevelName);
+			_utils.loadScene(Application.loadedLevelName);
 		}
 	}
 	*/

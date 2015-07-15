@@ -6,6 +6,6 @@ public class GoBackButtonScript : FacadeMonoBehaviour {
 
 	public void goBack() {
 		// go back to the main menu
-		Application.LoadLevel("MainMenu");
+		_utils.loadScene("MainMenu");
 	}
 }

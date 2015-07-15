@@ -9,6 +9,6 @@ public class LoadGameScript : FacadeMonoBehaviour {
 		// save game id to player pref to be retrieved later in the next scene
 		PlayerPrefs.SetString ("gameId", gameId);
 		// load the next scene
-		Application.LoadLevel ("Game");
+		_utils.loadScene("Game");
 	}
 }
