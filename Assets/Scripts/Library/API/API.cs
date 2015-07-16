@@ -12,8 +12,8 @@ namespace com.lovelydog
 
 		protected string _host = Properties.API;
 		protected Dispatcher<UnityEngine.Object> _dispatcher = Dispatcher<UnityEngine.Object>.Instance;
-		protected bool showRetry = true;
-		protected bool showGoBack = true;
+		public bool showRetry = true;
+		public bool showGoBack = true;
 		public HTTPRequest request;
 
 		public API() {}
@@ -61,12 +61,15 @@ namespace com.lovelydog
 		}
 
 		protected void ShowError() {
+			// create a callback object wrapper to be passed in the dispatch
+			CallbackObject callback = new CallbackObject (Send);
+			// dispatch the appropiated event
 			if (showRetry && showGoBack) {
-				_dispatcher.Dispatch ("api_error_retry_and_back");
+				_dispatcher.Dispatch ("api_error_retry_and_back", callback);
 			} 
 			else {
 				if (showRetry) {
-					_dispatcher.Dispatch("api_error_retry");
+					_dispatcher.Dispatch("api_error_retry", callback);
 				}
 				else {
 					_dispatcher.Dispatch("api_error_back");

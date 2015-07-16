@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
@@ -58,7 +59,8 @@ public class AnswerScript : FacadeMonoBehaviour {
 	}
 
 	void sendAnswer() {
-		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + PlayerPrefs.GetString("gameId") + "/answer/" + PlayerPrefs.GetString("questionId")), HTTPMethods.Post, responseReady);
+		API request = new API();
+		request.Post ("/game/" + PlayerPrefs.GetString ("gameId") + "/answer/" + PlayerPrefs.GetString ("questionId"), responseReady);
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.AddField ("answer", answerText.text);
 		request.AddField ("correct", correctAnswer.ToString());

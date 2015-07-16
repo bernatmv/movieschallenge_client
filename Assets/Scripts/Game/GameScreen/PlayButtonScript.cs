@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
@@ -41,7 +42,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	public void play() {
 		beginPlay ();
 		// call the API
-		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + PlayerPrefs.GetString("gameId") + "/play"), endAPICall);
+		API request = new API("/game/" + PlayerPrefs.GetString("gameId") + "/play", endAPICall);
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
 	}

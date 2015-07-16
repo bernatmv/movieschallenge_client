@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
@@ -38,12 +39,13 @@ public class GamesLoader : FacadeMonoBehaviour {
 	// get games from API
 	void getGames() {
 		// get all the games
-		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/games"), (HTTPRequest req, HTTPResponse res) => {
+		API request = new API("/games", (HTTPRequest req, HTTPResponse res) => {
 			// deserialize json
 			GameModel[] games = JsonMapper.ToObject<GameModel[]> (res.DataAsText);
 			// build list
 			buildGamesList(games);
 		});
+		request.showGoBack = false;
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
 	}

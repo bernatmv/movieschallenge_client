@@ -38,20 +38,6 @@ public class LoaderScript : FacadeMonoBehaviour {
 		});
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
-		/*
-		// get all the games
-		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + _gameId), (HTTPRequest req, HTTPResponse res) => {
-			// deserialize json
-			GameModel game = JsonMapper.ToObject<GameModel> (res.DataAsText);
-			// build scene
-			buildScene(game);
-		});
-		request.ConnectTimeout = System.TimeSpan.FromSeconds (Properties.connectTimeout);
-		request.Timeout = System.TimeSpan.FromSeconds (Properties.timeout);
-		request.DisableCache = true;
-		request.AddField ("token", PlayerPrefs.GetString ("token"));
-		request.Send ();
-		*/
 	}
 
 	void buildScene(GameModel game) {

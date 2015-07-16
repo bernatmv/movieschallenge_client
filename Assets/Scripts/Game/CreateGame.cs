@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
@@ -10,8 +11,8 @@ public class CreateGame : FacadeMonoBehaviour {
 	public void createGame() {
 		string challenger = PlayerPrefs.GetString("username");
 		string challenged = (challenger == "berni") ? "gemmins" : "berni";
-		Debug.Log (PlayerPrefs.GetString("token"));
-		HTTPRequest request = new HTTPRequest (new System.Uri (Properties.API + "/game"), HTTPMethods.Post, (HTTPRequest req, HTTPResponse res) => {
+		API request = new API ();
+		request.Post ("/game", (HTTPRequest req, HTTPResponse res) => {
 			// get id from response
 			NewRegisterModel newGame = JsonMapper.ToObject<NewRegisterModel> (res.DataAsText);
 			// save game id to player pref to be retrieved later in the next scene
@@ -22,6 +23,7 @@ public class CreateGame : FacadeMonoBehaviour {
 		request.AddField ("challenger", challenger);
 		request.AddField ("challenged", challenged);
 		request.AddField ("token", PlayerPrefs.GetString("token"));
+		request.showGoBack = false;
 		request.Send ();
 	}
 }

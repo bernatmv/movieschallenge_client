@@ -10,4 +10,5 @@ public class QuestionModel : Object {
 	public string quote;
 	public string correctAnswer;
 	public string[] otherAnswers;
+	public string creator;
 }

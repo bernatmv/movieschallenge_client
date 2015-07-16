@@ -34,7 +34,8 @@ public class Authenticate {
 
 	void doAuthentication(string username, string password) {
 		// if there is no token stored, negotiate a new one
-		HTTPRequest req = new HTTPRequest (new System.Uri (Properties.API + "/authenticate"), HTTPMethods.Post, onAuthenticationFinished);
+		API req = new API ();
+		req.Post ("/authenticate", onAuthenticationFinished);
 		req.AddField ("username", username);
 		req.AddField ("password", password);
 		req.Send ();
