@@ -3,10 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 
 public static class Properties {
-
+	// api config
 	public static string API = "http://localhost:8080/api";
 	public static int connectTimeout = 3;
 	public static int timeout = 10;
+	// categories config
 	public static string[] categoriesNames = new string[] {
 		"Family",
 		"Romantic",
@@ -37,4 +38,8 @@ public static class Properties {
 	public static Color newRGBColor(int red, int green, int blue, int alpha = 255) {
 		return new Color(red/255f, green/255f, blue/255f, alpha/255f);
 	}
+	// play animation configuration
+	public static float spinMinimumTime = .6f;
+	public static float spinIteration = .15f;
+	public static float delayQuestionStart = .4f;
 }

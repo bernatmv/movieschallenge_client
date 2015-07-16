@@ -29,16 +29,30 @@ public class GameCategoryScript : FacadeMonoBehaviour {
 		// update game categories progress
 		categoryImages = transform.GetComponentsInChildren<Image>();
 		if (categories [categoryId - 1] > 0) {
-			categoryImages[2].enabled = false;
+			categoryImages [2].enabled = false;
+		} 
+		else {
+			categoryImages [2].enabled = true;
 		}
 		if (categories [categoryId - 1] > 1) {
 			categoryImages[3].enabled = false;
 		}
+		else {
+			categoryImages [3].enabled = true;
+		}
 		if (categories [categoryId - 1] > 2) {
 			categoryImages [4].enabled = false;
+		}
+		else {
+			categoryImages [4].enabled = true;
 		}
 		if (categories [categoryId - 1] > 3) {
 			categoryImages[1].enabled = true;
 		}
+		else {
+			categoryImages [1].enabled = true;
+		}
+		// if the user have any category at stage 3, start a star question
+
 	}
 }

@@ -21,9 +21,9 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 
 	bool callingAPI = false;
 	bool spinFlag = false;
-	float minimumTime = 3.6f;
+	float minimumTime = Properties.spinMinimumTime;
 	float elapsedTime = 0f;
-	float delay = 0.2f;
+	float delay = Properties.spinIteration;
 	float elapsedDelay = 0f;
 	int iteration = 0;
 	List<int> categories = new List<int> ();
@@ -85,7 +85,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 				StartCoroutine(
 					delayAction(() => {
 						_dispatcher.Dispatch ("question_loaded", question);
-					}, 0.6f)
+				}, Properties.delayQuestionStart)
 				);
 			}
 		}
@@ -136,9 +136,9 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 			}
 		}
 		// update minimumTime
-		minimumTime = categories.Count * 0.6f;
-		if (minimumTime < 2.0f) {
-			minimumTime = 2.0f;
+		minimumTime = categories.Count * Properties.spinIteration * 2;
+		if (minimumTime < Properties.spinMinimumTime) {
+			minimumTime = Properties.spinMinimumTime;
 		}
 	}
 }

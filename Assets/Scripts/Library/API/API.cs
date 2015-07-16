@@ -47,6 +47,7 @@ namespace com.lovelydog
 			request = new HTTPRequest (new Uri (_host + action), methodType, (HTTPRequest req, HTTPResponse res) => {
 				// if finished correctly
 				if (req.State == HTTPRequestStates.Finished) {
+					ClearError();
 					callback(req, res);
 				}
 				// if not show an error with a retry and/or a go back to main menu
@@ -75,6 +76,10 @@ namespace com.lovelydog
 					_dispatcher.Dispatch("api_error_back");
 				}
 			}
+		}
+
+		protected void ClearError() {
+			_dispatcher.Dispatch("api_error_reset");
 		}
 	}
 }

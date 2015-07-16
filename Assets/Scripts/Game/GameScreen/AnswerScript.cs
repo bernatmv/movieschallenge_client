@@ -55,7 +55,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		animateAnswer ();
 		// send answer to the server
 		sendAnswer ();
-		StartCoroutine(delayAction (answerWait, 1f));
+		StartCoroutine(delayAction (answerWait, .4f));
 	}
 
 	void sendAnswer() {

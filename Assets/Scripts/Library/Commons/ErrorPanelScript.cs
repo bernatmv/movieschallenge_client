@@ -23,6 +23,7 @@ public class ErrorPanelScript : FacadeMonoBehaviour {
 		_dispatcher.AddListener ("api_error_retry", errorRetry);
 		_dispatcher.AddListener ("api_error_back", errorBack);
 		_dispatcher.AddListener ("api_error_loading", errorLoading);
+		_dispatcher.AddListener ("api_error_reset", errorReset);
 	}	
 
 	void errorRetryOrBack(Object param) {
@@ -46,6 +47,10 @@ public class ErrorPanelScript : FacadeMonoBehaviour {
 		show (loading);
 	}
 	
+	void errorReset(Object param) {
+		closePanel ();
+	}
+	
 	void initPanel() {
 		show (panel);
 		// reset the others just to be sure
@@ -57,9 +62,9 @@ public class ErrorPanelScript : FacadeMonoBehaviour {
 	void closePanel() {
 		// reset
 		hide (loading);
-		hide (panel);
 		hide (retryButton);
 		hide (goToMenuButton);
+		hide (panel);
 	}
 	
 	void hide(CanvasGroup canvas) {
