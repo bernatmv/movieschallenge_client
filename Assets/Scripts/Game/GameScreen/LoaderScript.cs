@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
@@ -29,6 +30,15 @@ public class LoaderScript : FacadeMonoBehaviour {
 
 	// get game info from API
 	public void getGame() {
+		API request = new API ("/game/" + _gameId, (HTTPRequest req, HTTPResponse res) => {
+			// deserialize json
+			GameModel game = JsonMapper.ToObject<GameModel> (res.DataAsText);
+			// build scene
+			buildScene (game);
+		});
+		request.AddField ("token", PlayerPrefs.GetString ("token"));
+		request.Send ();
+		/*
 		// get all the games
 		HTTPRequest request = new HTTPRequest(new System.Uri(Properties.API + "/game/" + _gameId), (HTTPRequest req, HTTPResponse res) => {
 			// deserialize json
@@ -36,8 +46,12 @@ public class LoaderScript : FacadeMonoBehaviour {
 			// build scene
 			buildScene(game);
 		});
+		request.ConnectTimeout = System.TimeSpan.FromSeconds (Properties.connectTimeout);
+		request.Timeout = System.TimeSpan.FromSeconds (Properties.timeout);
+		request.DisableCache = true;
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
+		*/
 	}
 
 	void buildScene(GameModel game) {

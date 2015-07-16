@@ -5,6 +5,8 @@ using System.Collections;
 public static class Properties {
 
 	public static string API = "http://localhost:8080/api";
+	public static int connectTimeout = 3;
+	public static int timeout = 10;
 	public static string[] categoriesNames = new string[] {
 		"Family",
 		"Romantic",
