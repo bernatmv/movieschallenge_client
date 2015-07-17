@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using com.lovelydog;
 using com.lovelydog.movieschallenge;
@@ -44,9 +45,17 @@ public class LoaderScript : FacadeMonoBehaviour {
 		// set title
 		setTitle (game);
 		// set the categories and name of the players
+		_dispatcher.Dispatch ("disable_play_button", game);
 		_dispatcher.Dispatch ("set_player_name", game);
 		_dispatcher.Dispatch ("update_categories", game);
-		_dispatcher.Dispatch ("enable_play_button", game);
+		// check if a star question is in progress
+		int indexOfStarQuestion = starQuestionPending (game);
+		if (indexOfStarQuestion >= 0) {
+			_dispatcher.Dispatch ("start_star_question", new PayloadObject(indexOfStarQuestion));
+		} 
+		else {
+			_dispatcher.Dispatch ("enable_play_button", game);
+		}
 	}
 
 	void setTitle(GameModel game) {
@@ -56,12 +65,25 @@ public class LoaderScript : FacadeMonoBehaviour {
 		titleText.setTitle ("Turn " + game.turn);
 	}
 
-	void updateGame(Object data) {
+	void updateGame(UnityEngine.Object data) {
 		// re-build scene
 		buildScene (((GameModel)data));
 		// reset question-answers
 		_dispatcher.Dispatch ("reset_answers");
 		_dispatcher.Dispatch("message_wrong_hide");
 		_dispatcher.Dispatch("message_correct_hide");
+	}
+
+	int starQuestionPending(GameModel game) {
+		string username = PlayerPrefs.GetString ("username");
+		int[] categories;
+		// get categories
+		if (game.players.challenger.username == username) {
+			categories = game.players.challenger.categoriesProgress;
+		}
+		else {
+			categories = game.players.challenged.categoriesProgress;
+		}
+		return Array.IndexOf (categories, Properties.starQuestion);
 	}
 }

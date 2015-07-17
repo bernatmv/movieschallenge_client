@@ -37,6 +37,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		// bind events
 		_dispatcher.AddListener ("update_categories", updateCategories);
 		_dispatcher.AddListener ("enable_play_button", enableButton);
+		_dispatcher.AddListener ("disable_play_button", disableButton);
 	}
 
 	public void play() {
@@ -112,10 +113,15 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		} 
 		else {
 			// disable button, enable not your turn text
-			playButton.enabled = false;
-			questionIcon [1].enabled = false;
+			disableButton();
 			questionText.text = "Not your turn";
 		}
+	}
+
+	void disableButton (UnityEngine.Object game = default(UnityEngine.Object)) {
+		playButton.enabled = false;
+		questionIcon [1].enabled = false;
+		questionText.text = "";
 	}
 
 	void updateCategories(UnityEngine.Object game) {
