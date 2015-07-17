@@ -47,6 +47,7 @@ public static class Properties {
 	public static float spinIteration = .15f;
 	public static float delayQuestionStart = .4f;
 	// categories completion progress
+	public static float starQuestionDelay = 3f;
 	public static int starQuestion = 3;
 	public static int completedQuestion = 4;
 

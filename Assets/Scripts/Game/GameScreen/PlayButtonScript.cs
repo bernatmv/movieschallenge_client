@@ -86,7 +86,8 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 				StartCoroutine(
 					delayAction(() => {
 						_dispatcher.Dispatch ("question_loaded", question);
-				}, Properties.delayQuestionStart)
+					}, 
+					Properties.delayQuestionStart)
 				);
 			}
 		}

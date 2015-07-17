@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.lovelydog;
 using com.lovelydog.movieschallenge;
 
 public class PlayQuestionLogicScript : FacadeMonoBehaviour {
@@ -67,7 +68,10 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 	}
 
 	void openQuote() {
-		quote.openQuote ();
+		Utils.delayAction (this, () => {
+			quote.openQuote ();
+			// TODO: start countdown
+		}, 1.2f);
 	}
 
 	void endPlay(Object data) {
