@@ -115,7 +115,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		else {
 			// disable button, enable not your turn text
 			disableButton();
-			questionText.text = "Not your turn";
+			questionText.text = "NOT YOUR TURN";
 		}
 	}
 

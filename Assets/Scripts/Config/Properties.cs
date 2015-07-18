@@ -16,6 +16,7 @@ public static class Properties {
 		"History & action",
 		"Other"
 	};
+	public static Color categoryIconColor = newRGBColor(0, 0, 0);
 	public static Color[] categoriesColor = new Color[] {
 		newRGBColor(149, 100, 173),
 		newRGBColor(244, 111, 110),

@@ -22,13 +22,23 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 	}
 
 	public void hide() {
-		canvas.alpha = 0;
+		Utils.fadeOutPanel(this, canvas, 1f, () => {});
+		//canvas.alpha = 0;
 		canvas.blocksRaycasts = false;
 	}
 
 	public void show() {
-		canvas.alpha = 1;
-		canvas.blocksRaycasts = true;
+		// if it's NOT a star or end game question, then make a fadeIn
+		if (question.difficulty < 3) {
+			Utils.fadeInPanel(this, canvas, .8f, () => {
+				canvas.blocksRaycasts = true;
+			});
+		} 
+		// if it's a star or end game question, show immediately
+		else {
+			canvas.alpha = 1;
+			canvas.blocksRaycasts = true;
+		}
 	}
 
 	void buildScene(Object data) {

@@ -47,12 +47,12 @@ public class GameCategoryScript : FacadeMonoBehaviour {
 			categoryImages [4].enabled = true;
 		}
 		if (categories [categoryId - 1] > 3) {
+			categoryImages[1].sprite = Properties.categoriesIcon[categoryId - 1];
+			categoryImages[1].color = Properties.categoryIconColor;
 			categoryImages[1].enabled = true;
 		}
 		else {
-			categoryImages [1].enabled = true;
+			categoryImages [1].enabled = false;
 		}
-		// if the user have any category at stage 3, start a star question
-
 	}
 }
