@@ -49,6 +49,10 @@ public class LoaderScript : FacadeMonoBehaviour {
 		_dispatcher.Dispatch ("set_player_name", game);
 		_dispatcher.Dispatch ("update_categories", game);
 		_dispatcher.Dispatch ("update_title", game);
+		// check if the game is finished
+		if (game.ended) {
+			gameFinished (game);
+		}
 		// check if a star question is in progress
 		int indexOfStarQuestion = starQuestionPending (game);
 		if (indexOfStarQuestion >= 0) {
@@ -86,5 +90,15 @@ public class LoaderScript : FacadeMonoBehaviour {
 			categories = game.players.challenged.categoriesProgress;
 		}
 		return Array.IndexOf (categories, Properties.starQuestion);
+	}
+
+	void gameFinished(GameModel game) {
+		string username = PlayerPrefs.GetString ("username");
+		if (game.winner == username) {
+			_dispatcher.Dispatch ("game_won");
+		} 
+		else {
+			_dispatcher.Dispatch("game_lost");
+		}
 	}
 }

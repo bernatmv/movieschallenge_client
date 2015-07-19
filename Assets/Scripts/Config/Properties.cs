@@ -5,7 +5,7 @@ using System.Collections;
 public static class Properties {
 	// general
 	public static Color bgColor = newRGBColor(82, 81, 98);
-	public static float questionCountdownTime = 18f;
+	public static float questionCountdownTime = 17f;
 	// title
 	public static Color titleBgMenu = newRGBColor(255, 255, 255, 20);
 	public static Color titleBgChallenger = newRGBColor(244, 111, 110);
