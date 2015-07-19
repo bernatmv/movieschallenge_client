@@ -106,15 +106,17 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	}
 
 	void enableButton(UnityEngine.Object game) {
+		playImage.color = Properties.bgColor;
+		questionText.enabled = true;
+		questionIcon [1].enabled = false;
 		if (PlayerPrefs.GetString ("username") == ((GameModel)game).thisTurn) {
 			// enable button, disable question icon
 			playButton.enabled = true;
-			questionIcon [1].enabled = false;
-			questionText.enabled = true;
+			questionText.text = "Tap me!";
 		} 
 		else {
 			// disable button, enable not your turn text
-			disableButton();
+			playButton.enabled = false;
 			questionText.text = "NOT YOUR TURN";
 		}
 	}

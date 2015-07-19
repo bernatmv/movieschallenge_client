@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public static class Properties {
+	public static Color bgColor = newRGBColor(82, 81, 98);
 	// api config
 	public static string API = "http://localhost:8080/api";
 	public static int connectTimeout = 3;
