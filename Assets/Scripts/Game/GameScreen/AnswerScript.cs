@@ -51,6 +51,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		waitRdy = false;
 		// disable buttons
 		_dispatcher.Dispatch ("disable_answers");
+		_dispatcher.Dispatch ("stop_countdown");
 		// animate answer while calling the server
 		animateAnswer ();
 		// send answer to the server

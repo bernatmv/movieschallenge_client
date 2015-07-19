@@ -3,7 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 
 public static class Properties {
+	// general
 	public static Color bgColor = newRGBColor(82, 81, 98);
+	public static float questionCountdownTime = 15f;
+	// title
+	public static Color titleBgMenu = newRGBColor(255, 255, 255, 20);
+	public static Color titleBgChallenger = newRGBColor(244, 111, 110);
+	public static Color titleBgChallenged = newRGBColor(27, 211, 177);
 	// api config
 	public static string API = "http://localhost:8080/api";
 	public static int connectTimeout = 3;

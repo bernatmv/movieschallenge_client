@@ -30,6 +30,7 @@ namespace com.lovelydog
 		}
 
 		public void Send() {
+			Debug.Log ("Begin call");
 			request.Send ();
 		}
 		
@@ -45,6 +46,8 @@ namespace com.lovelydog
 
 		protected void CreateRequest(string action, Action<HTTPRequest, HTTPResponse> callback, HTTPMethods methodType = HTTPMethods.Get) {
 			request = new HTTPRequest (new Uri (_host + action), methodType, (HTTPRequest req, HTTPResponse res) => {
+				Debug.Log ("End call");
+				Debug.Log (res.DataAsText);
 				// if finished correctly
 				if (req.State == HTTPRequestStates.Finished) {
 					ClearError();

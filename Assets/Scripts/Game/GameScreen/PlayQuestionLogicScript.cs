@@ -8,6 +8,7 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 
 	QuestionModel question = new QuestionModel();
 	QuoteScript quote;
+	CountdownScript countdown;
 	AnswerScript[] answers;
 	CanvasGroup canvas;
 
@@ -16,6 +17,7 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 		quote = transform.GetComponentInChildren<QuoteScript> ();
 		answers = transform.GetComponentsInChildren<AnswerScript> ();
 		canvas = transform.GetComponent<CanvasGroup> ();
+		countdown = transform.GetComponentInChildren<CountdownScript> ();
 		// bind events
 		_dispatcher.AddListener ("question_loaded", buildScene);
 		_dispatcher.AddListener ("update_game", endPlay);
@@ -53,6 +55,8 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 		show ();
 		// open quote
 		openQuote ();
+		// start countdown
+		startCountdown ();
 	}
 
 	void setBackgroundColor() {
@@ -84,6 +88,10 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 		}, 1.2f);
 	}
 
+	void startCountdown() {
+		countdown.startCountdown ();
+	}
+	
 	void endPlay(Object data) {
 		hide ();
 	}

@@ -48,6 +48,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 		_dispatcher.Dispatch ("disable_play_button", game);
 		_dispatcher.Dispatch ("set_player_name", game);
 		_dispatcher.Dispatch ("update_categories", game);
+		_dispatcher.Dispatch ("update_title", game);
 		// check if a star question is in progress
 		int indexOfStarQuestion = starQuestionPending (game);
 		if (indexOfStarQuestion >= 0) {
