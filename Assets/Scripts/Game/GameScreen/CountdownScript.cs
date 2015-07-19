@@ -50,6 +50,7 @@ public class CountdownScript : FacadeMonoBehaviour {
 		if (countdownTime <= 0) {
 			countdownTime = 0;
 			active = false;
+			failQuestion();
 		}
 		countdownText.text = countdownTime + " s";
 	}
@@ -85,5 +86,11 @@ public class CountdownScript : FacadeMonoBehaviour {
 	void resetCountdown() {
 		active = false;
 		resetValues ();
+	}
+
+	void failQuestion() {
+		int randomAnswer = Random.Range (1, 6);
+		PayloadObject payload = new PayloadObject (randomAnswer);
+		_dispatcher.Dispatch("question_timeout", payload);
 	}
 }

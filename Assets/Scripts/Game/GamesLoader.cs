@@ -51,6 +51,9 @@ public class GamesLoader : FacadeMonoBehaviour {
 	}
 
 	void buildGamesList(GameModel[] games) {
+		// resize scroll content
+		_dispatcher.Dispatch ("resize_scroll_content", new PayloadObject(games.Length));
+		// build list
 		RectTransform gameCanvas;
 		for (int i = 0, l = games.Length; i < l; i++) {
 			gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;

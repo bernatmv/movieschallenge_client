@@ -27,6 +27,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		_dispatcher.AddListener ("disable_answers", disableAnswer);
 		_dispatcher.AddListener ("enable_answers", enableAnswer);
 		_dispatcher.AddListener ("reset_answers", resetAnswer);
+		_dispatcher.AddListener ("question_timeout", questionTimeout);
 	}
 
 	public void setAnswer(string answer) {
@@ -127,5 +128,20 @@ public class AnswerScript : FacadeMonoBehaviour {
 		reset();
 		// enable answer
 		enableAnswer (param);
+	}
+
+	void questionTimeout(Object data) {
+		int randomAnswer = ((PayloadObject)data).intPayload;
+		if (answer == randomAnswer) {
+			if (correctAnswer) {
+				randomAnswer++;
+				randomAnswer = (randomAnswer == 6) ? 1 : randomAnswer;
+				PayloadObject payload = new PayloadObject (randomAnswer);
+				_dispatcher.Dispatch("question_timeout", payload);
+			}
+			else {
+				chooseThis();
+			}
+		}
 	}
 }
