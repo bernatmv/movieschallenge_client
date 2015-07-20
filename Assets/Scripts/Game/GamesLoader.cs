@@ -25,15 +25,7 @@ public class GamesLoader : FacadeMonoBehaviour {
 
 	// build the scene
 	void buildScene(Object param) {
-		setTitle ();
 		getGames ();
-	}
-
-	void setTitle() {
-		TitleTextScript titleText;
-		// set title
-		titleText = FindObjectOfType<TitleTextScript>();
-		titleText.setTitle (PlayerPrefs.GetString("username"));
 	}
 
 	// get games from API
@@ -57,10 +49,10 @@ public class GamesLoader : FacadeMonoBehaviour {
 		RectTransform gameCanvas;
 		for (int i = 0, l = games.Length; i < l; i++) {
 			if (games[i].ended) {
-				gameCanvas = Instantiate (oldGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+				gameCanvas = Instantiate (oldGamePrefab, new Vector2 (-5f, -290 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
 			}
 			else {
-				gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+				gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -290 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
 			}
 			gameCanvas.transform.SetParent(gameParent.transform, false);
 			// set payload
@@ -71,6 +63,8 @@ public class GamesLoader : FacadeMonoBehaviour {
 			setPlayersNames(games[i], gameCanvas);
 			// update categories progress
 			setPlayersCategories(games[i], gameCanvas);
+			// mark player layer
+			markPlayerLayer(games[i], gameCanvas);
 		}
 	}
 
@@ -113,6 +107,24 @@ public class GamesLoader : FacadeMonoBehaviour {
 		rightCategoriesProgress = gameCanvas.GetComponentsInChildren<PlayerRightCategoryProgressScript>();
 		foreach (PlayerRightCategoryProgressScript categoryProgress in rightCategoriesProgress) {
 			categoryProgress.updateCategory(game.players.challenged.categoriesProgress);
+		}
+	}
+
+	void markPlayerLayer(GameModel game, RectTransform gameCanvas) {
+		if (!game.ended) {
+			// get components
+			Image[] images = gameCanvas.GetComponentsInChildren<Image> ();
+			Image challengerLayer = images[1];
+			Image challengedLayer = images[2];
+			// activate
+			if (game.thisTurn == game.players.challenger.username) {
+				challengerLayer.enabled = true;
+				challengedLayer.enabled = false;
+			} 
+			else {
+				challengedLayer.enabled = true;
+				challengerLayer.enabled = false;
+			}
 		}
 	}
 }

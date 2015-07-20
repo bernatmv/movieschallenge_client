@@ -17,7 +17,7 @@ public class ScrollViewContentScript : FacadeMonoBehaviour {
 
 	void resize(Object data) {
 		int numGames = ((PayloadObject)data).intPayload;
-		int height = (numGames * 185) + 100;
+		int height = (numGames * 185) + 100 + 165;
 		rect.sizeDelta = new Vector2 (0, height);
 	}
 }
