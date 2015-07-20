@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeGamePrefab: {fileID: 22466526, guid: 4842a148d695cb74da940cfa7e2af5bf, type: 2}
-  oldGamePrefab: {fileID: 22438766, guid: 9b03ca9aab48dd240acec81631997a37, type: 2}
+  oldGamePrefab: {fileID: 22466526, guid: 68ccf51468e36a042bd9b4b36c611c52, type: 2}
   gameParent: {fileID: 1191734374}
 --- !u!4 &1832779258
 Transform:

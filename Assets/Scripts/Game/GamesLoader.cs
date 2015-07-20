@@ -56,7 +56,12 @@ public class GamesLoader : FacadeMonoBehaviour {
 		// build list
 		RectTransform gameCanvas;
 		for (int i = 0, l = games.Length; i < l; i++) {
-			gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+			if (games[i].ended) {
+				gameCanvas = Instantiate (oldGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+			}
+			else {
+				gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -115 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+			}
 			gameCanvas.transform.SetParent(gameParent.transform, false);
 			// set payload
 			setPayload(games[i], gameCanvas);
