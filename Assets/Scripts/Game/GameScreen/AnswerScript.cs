@@ -17,6 +17,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 	Image answerImage;
 	bool responseRdy = false;
 	bool waitRdy = false;
+	bool finalRoundActive = false;
 
 	void Awake() {
 		//get components
@@ -28,6 +29,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		_dispatcher.AddListener ("enable_answers", enableAnswer);
 		_dispatcher.AddListener ("reset_answers", resetAnswer);
 		_dispatcher.AddListener ("question_timeout", questionTimeout);
+		_dispatcher.AddListener ("start_final_round", startFinalRound);
 	}
 
 	public void setAnswer(string answer) {
@@ -55,9 +57,15 @@ public class AnswerScript : FacadeMonoBehaviour {
 		_dispatcher.Dispatch ("stop_countdown");
 		// animate answer while calling the server
 		animateAnswer ();
-		// send answer to the server
-		sendAnswer ();
-		StartCoroutine(delayAction (answerWait, .4f));
+		// if we are in the final round, notify action
+		if (finalRoundActive) {
+			_dispatcher.Dispatch("next_final_round_question", new PayloadObject(correctAnswer));
+		} 
+		else {
+			// send answer to the server
+			sendAnswer ();
+			StartCoroutine(delayAction (answerWait, .4f));
+		}
 	}
 
 	void sendAnswer() {
@@ -143,5 +151,9 @@ public class AnswerScript : FacadeMonoBehaviour {
 				chooseThis();
 			}
 		}
+	}
+
+	void startFinalRound(Object data) {
+		finalRoundActive = true;
 	}
 }

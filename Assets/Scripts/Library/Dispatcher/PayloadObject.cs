@@ -10,6 +10,7 @@ namespace com.lovelydog {
 		public int intPayload;
 		public float floatPayload;
 		public string stringPayload;
+		public bool boolPayload;
 		
 		public PayloadObject (Action newAction) {
 			action = newAction;
@@ -25,6 +26,10 @@ namespace com.lovelydog {
 		
 		public PayloadObject (string newStringPayload) {
 			stringPayload = newStringPayload;
+		}
+
+		public PayloadObject (bool newBoolPayload) {
+			boolPayload = newBoolPayload;
 		}
 	}
 }

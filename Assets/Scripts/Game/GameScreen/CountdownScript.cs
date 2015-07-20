@@ -47,7 +47,7 @@ public class CountdownScript : FacadeMonoBehaviour {
 	}
 
 	void updateCounter() {
-		if (countdownTime <= 0) {
+		if (countdownTime < 0) {
 			countdownTime = 0;
 			active = false;
 			failQuestion();

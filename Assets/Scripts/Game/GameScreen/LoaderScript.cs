@@ -10,6 +10,7 @@ using LitJson;
 public class LoaderScript : FacadeMonoBehaviour {
 
 	string _gameId;
+	GameModel currentGame;
 
 	void Awake() {
 		// get gameId
@@ -42,6 +43,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 	}
 
 	void buildScene(GameModel game) {
+		currentGame = game;
 		// set title
 		setTitle (game);
 		// set the categories and name of the players
@@ -52,14 +54,29 @@ public class LoaderScript : FacadeMonoBehaviour {
 		// check if the game is finished
 		if (game.ended) {
 			gameFinished (game);
-		}
-		// check if a star question is in progress
-		int indexOfStarQuestion = starQuestionPending (game);
-		if (indexOfStarQuestion >= 0) {
-			_dispatcher.Dispatch ("start_star_question", new PayloadObject(indexOfStarQuestion));
 		} 
 		else {
-			_dispatcher.Dispatch ("enable_play_button", game);
+			// check if it's de current user turn
+			string username = PlayerPrefs.GetString ("username");
+			if (game.thisTurn == username) {
+				// check if the final round is in progress
+				if (finalRound (game)) {
+					_dispatcher.Dispatch ("start_final_round", game);
+				} 
+				else {
+					// check if a star question is in progress
+					int indexOfStarQuestion = starQuestionPending (game);
+					if (indexOfStarQuestion >= 0) {
+						_dispatcher.Dispatch ("start_star_question", new PayloadObject (indexOfStarQuestion));
+					} 
+					else {
+						_dispatcher.Dispatch ("enable_play_button", game);
+					}
+				}
+			} 
+			else {
+				_dispatcher.Dispatch ("enable_play_button", game);
+			}
 		}
 	}
 
@@ -92,6 +109,24 @@ public class LoaderScript : FacadeMonoBehaviour {
 		return Array.IndexOf (categories, Properties.starQuestion);
 	}
 
+	bool finalRound(GameModel game) {
+		string username = PlayerPrefs.GetString ("username");
+		int[] categories;
+		bool finalRoundReady = true;
+		// get categories
+		if (game.players.challenger.username == username) {
+			categories = game.players.challenger.categoriesProgress;
+		}
+		else {
+			categories = game.players.challenged.categoriesProgress;
+		}
+		// check every category is at progress 4
+		for (int i = 0; i < categories.Length; i++) {
+			finalRoundReady = finalRoundReady && (categories[i] == Properties.completedQuestion);
+		}
+		return finalRoundReady;
+	}
+	
 	void gameFinished(GameModel game) {
 		string username = PlayerPrefs.GetString ("username");
 		if (game.winner == username) {
