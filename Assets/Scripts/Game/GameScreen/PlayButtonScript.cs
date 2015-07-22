@@ -42,6 +42,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 
 	public void play() {
 		beginPlay ();
+		spinFlag = true;
 		// call the API
 		API request = new API("/game/" + PlayerPrefs.GetString("gameId") + "/play", endAPICall);
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
@@ -65,7 +66,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		callingAPI = false;
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		if (callingAPI || (elapsedTime > 0f && elapsedTime < minimumTime)) {
 			spinFlag = true;
 			// to execute while calling the API
