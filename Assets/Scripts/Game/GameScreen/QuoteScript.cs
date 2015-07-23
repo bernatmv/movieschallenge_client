@@ -12,4 +12,8 @@ public class QuoteScript : FacadeMonoBehaviour {
 	public void openQuote() {
 		transform.GetComponentInChildren<Animator> ().SetTrigger("open");
 	}
+
+	public void closeQuote() {
+		transform.GetComponentInChildren<Animator> ().SetTrigger("close");
+	}
 }

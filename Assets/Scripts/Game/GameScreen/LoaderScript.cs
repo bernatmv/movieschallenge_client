@@ -93,10 +93,6 @@ public class LoaderScript : FacadeMonoBehaviour {
 	void updateGame(UnityEngine.Object data) {
 		// re-build scene
 		buildScene (((GameModel)data));
-		// reset question-answers
-		_dispatcher.Dispatch ("reset_answers");
-		_dispatcher.Dispatch("message_wrong_hide");
-		_dispatcher.Dispatch("message_correct_hide");
 	}
 
 	int starQuestionPending(GameModel game) {

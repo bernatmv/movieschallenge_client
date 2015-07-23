@@ -24,6 +24,7 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 	}
 
 	public void hide() {
+		quote.closeQuote ();
 		Utils.fadeOutPanel(this, canvas, 1f, () => {});
 		//canvas.alpha = 0;
 		canvas.blocksRaycasts = false;
@@ -45,6 +46,10 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 
 	void buildScene(Object data) {
 		question = (QuestionModel)data;
+		// reset question-answers
+		_dispatcher.Dispatch ("reset_answers");
+		_dispatcher.Dispatch("message_wrong_hide");
+		_dispatcher.Dispatch("message_correct_hide");
 		// set background color
 		setBackgroundColor ();
 		// set quote
