@@ -60,7 +60,7 @@ public class StarQuestionLogicScript : FacadeMonoBehaviour {
 
 	void initPanel(int category) {
 		// set the title, hexagon's color and icon sprite
-		title.text = "Playing to complete the \n" + Properties.categoriesNames[category] + " category";
+		title.text = "Playing to complete the category:\n" + Properties.categoriesNames[category];
 		icon.sprite = Properties.categoriesIcon[category];
 		hexagon.color = Properties.categoriesColor[category];
 		// show panel
