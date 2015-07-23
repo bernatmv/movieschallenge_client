@@ -25,12 +25,12 @@ public static class Properties {
 	};
 	public static Color categoryIconColor = newRGBColor(0, 0, 0);
 	public static Color[] categoriesColor = new Color[] {
-		newRGBColor(149, 100, 173),
+		newRGBColor(204, 142, 235),
 		newRGBColor(244, 111, 110),
 		newRGBColor(31, 184, 222),
 		newRGBColor(27, 211, 177),
 		newRGBColor(250, 187, 59),
-		newRGBColor(157, 103, 28)
+		newRGBColor(241, 226, 147)
 	};
 	public static Color[] categoriesColorAlt = new Color[] {
 		newRGBColor(238, 119, 204, 255),
