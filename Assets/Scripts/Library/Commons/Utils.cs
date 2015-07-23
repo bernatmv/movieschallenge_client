@@ -57,5 +57,21 @@ namespace com.lovelydog
 			// finish coroutine
 			yield return null;
 		}
+
+		public static string limitString(string str, int limit) {
+			return (str.Length > limit) ? str.Substring(0, (limit - 1)) + "..." : str;
+		}
+
+		public static void hideCanvas(CanvasGroup canvas) {
+			canvas.interactable = false;
+			canvas.blocksRaycasts = false;
+			canvas.alpha = 0f;
+		}
+
+		public static void showCanvas(CanvasGroup canvas) {
+			canvas.alpha = 1f;
+			canvas.interactable = true;
+			canvas.blocksRaycasts = true;
+		}
 	}
 }
