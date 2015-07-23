@@ -6,6 +6,7 @@ using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
+using GameAnalyticsSDK;
 
 public class LoaderScript : FacadeMonoBehaviour {
 
@@ -44,6 +45,8 @@ public class LoaderScript : FacadeMonoBehaviour {
 
 	void buildScene(GameModel game) {
 		currentGame = game;
+		// send analytics
+		GameAnalytics.NewProgressionEvent(GA_Progression.GAProgressionStatus.GAProgressionStatusStart, "match", "turn_" + currentGame.turn);
 		// set title
 		setTitle (game);
 		// set the categories and name of the players

@@ -5,6 +5,7 @@ using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
+using GameAnalyticsSDK;
 
 public class CreateGame : FacadeMonoBehaviour {
 
@@ -21,14 +22,20 @@ public class CreateGame : FacadeMonoBehaviour {
 
 	public void createGameFromInput() {
 		createGame (_usernameInput.text);
+		// send analytics
+		GameAnalytics.NewDesignEvent ("ui:game:input");
 	}
 
 	public void createGameFromLastPlayer () {
 		Text username = transform.GetComponentInChildren<Text> ();
 		createGame (username.text);
+		// send analytics
+		GameAnalytics.NewDesignEvent ("ui:game:lastplayer");
 	}
 
 	public void createGameRandom () {
+		// send analytics
+		GameAnalytics.NewDesignEvent ("ui:game:random");
 		// disable buttons
 		_dispatcher.Dispatch ("disable_new_game_button");
 		// call the API
@@ -57,6 +64,8 @@ public class CreateGame : FacadeMonoBehaviour {
 	}
 
 	void processResponse(HTTPRequest req, HTTPResponse res) {
+		// send analytics
+		GameAnalytics.NewProgressionEvent(GA_Progression.GAProgressionStatus.GAProgressionStatusStart, "match");
 		// enable buttons
 		_dispatcher.Dispatch ("enable_new_game_button");
 		// get id from response

@@ -10,8 +10,6 @@ using LitJson;
 
 public class PlayButtonScript : FacadeMonoBehaviour {
 
-	public Color[] categoriesColor;
-
 	Image playImage;
 	Image[] questionIcon;
 	Text questionText;
@@ -74,7 +72,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 			elapsedDelay += Time.deltaTime;
 			if (elapsedDelay >= delay) {
 				elapsedDelay = 0f;
-				playImage.color = categoriesColor [categories[iteration]];
+				playImage.color = Properties.categoriesColor [categories[iteration]];
 				iteration = (iteration + 1) % categories.Count;
 			}
 		} 
@@ -101,7 +99,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		elapsedTime = 0f;
 		// if a question is stored, set it's color and title
 		if (!string.IsNullOrEmpty(question._id)) {
-			playImage.color = categoriesColor [question.category - 1];
+			playImage.color = Properties.categoriesColor [question.category - 1];
 			questionText.text = Properties.categoriesNames[question.category - 1];
 		}
 	}

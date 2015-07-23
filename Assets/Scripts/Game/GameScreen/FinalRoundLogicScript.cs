@@ -5,6 +5,7 @@ using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
+using GameAnalyticsSDK;
 
 public class FinalRoundLogicScript : FacadeMonoBehaviour {
 	
@@ -26,7 +27,7 @@ public class FinalRoundLogicScript : FacadeMonoBehaviour {
 	
 	void updateFinalRound(Object data) {
 		correctAnswers = 0;
-		// begin to call the API to retrieve the star question 
+		// begin to call the API to retrieve the final round 
 		API request = new API("/game/" + _gameId + "/finalRound", questionsReady);
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
@@ -68,6 +69,10 @@ public class FinalRoundLogicScript : FacadeMonoBehaviour {
 		request.Post (uri, processGameEnd);
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
+		// send analytics
+		if (finished) {
+			GameAnalytics.NewProgressionEvent(GA_Progression.GAProgressionStatus.GAProgressionStatusComplete, "match");
+		}
 	}
 
 	void processGameEnd(HTTPRequest req, HTTPResponse res) {

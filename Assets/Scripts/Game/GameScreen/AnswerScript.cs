@@ -5,6 +5,7 @@ using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
+using GameAnalyticsSDK;
 
 public class AnswerScript : FacadeMonoBehaviour {
 
@@ -52,6 +53,9 @@ public class AnswerScript : FacadeMonoBehaviour {
 	public void chooseThis() {
 		responseRdy = false;
 		waitRdy = false;
+		// send analytics
+		GameAnalytics.NewDesignEvent ("question:answered:position" + answer);
+		GameAnalytics.NewDesignEvent ("question:" + PlayerPrefs.GetString("questionId") + ":" + ((correctAnswer) ? "correct" : "failed") );
 		// disable buttons
 		_dispatcher.Dispatch ("disable_answers");
 		_dispatcher.Dispatch ("stop_countdown");
@@ -64,7 +68,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		else {
 			// send answer to the server
 			sendAnswer ();
-			StartCoroutine(delayAction (answerWait, .4f));
+			StartCoroutine(delayAction (answerWait, .8f));
 		}
 	}
 
@@ -82,6 +86,10 @@ public class AnswerScript : FacadeMonoBehaviour {
 		responseRdy = true;
 		// deserialize json
 		game = JsonMapper.ToObject<GameModel> (res.DataAsText);
+		// send analytics
+		if (!correctAnswer) {
+			GameAnalytics.NewProgressionEvent(GA_Progression.GAProgressionStatus.GAProgressionStatusComplete, "match", "turn_" + (game.turn - 1));
+		}
 		// call process response to sync with wait
 		processResponse ();
 	}
