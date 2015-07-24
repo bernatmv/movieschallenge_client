@@ -24,7 +24,7 @@ namespace com.lovelydog
 
 		void validateLang() {
 			if (string.IsNullOrEmpty (lang)) {
-				lang = "EN";
+				lang = "en";
 			}
 			// get the appropiated language tags
 			if (!languageTags.tags.TryGetValue (lang, out tags)) {
@@ -32,10 +32,14 @@ namespace com.lovelydog
 			}
 		}
 
-		void changeLang(string newLang) {
+		public void setLocale(string newLang) {
 			lang = newLang;
 			validateLang ();
 			PlayerPrefs.SetString ("lang", lang);
+		}
+
+		public string getLocale() {
+			return lang;
 		}
 
 		public string get(string tagName) {

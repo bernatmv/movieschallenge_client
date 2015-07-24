@@ -46,6 +46,13 @@ namespace com.lovelydog
 			Application.LoadLevel(scene);
 		}
 
+		public void reloadScene() {
+			// reset dispatcher
+			_dispatcher.Reset ();
+			// load level
+			Application.LoadLevel(Application.loadedLevel);
+		}
+		
 		public static void delayAction(MonoBehaviour context, Action callback, float seconds) {
 			context.StartCoroutine (Utils.delayActionCoroutine (callback, seconds));
 		}
@@ -72,6 +79,10 @@ namespace com.lovelydog
 			canvas.alpha = 1f;
 			canvas.interactable = true;
 			canvas.blocksRaycasts = true;
+		}
+
+		public static void openWebSite(string uri) {
+			Application.OpenURL(uri);
 		}
 	}
 }

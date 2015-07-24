@@ -11,7 +11,7 @@ namespace com.lovelydog
 
 		public LanguageTags() {
 			tags.Add (
-				"ES", 
+				"es", 
 				new Dictionary<string, string> {
 					{"LOG_IN_TITLE", "Entra"},
 					{"USERNAME_LABEL", "Nombre de usuario"},
@@ -44,10 +44,14 @@ namespace com.lovelydog
 					{"CATEGORY_4", "Humor"},
 					{"CATEGORY_5", "Historia y acción"},
 					{"CATEGORY_6", "Otras"},
+					{"SPANISH_LOCALE_BUTTON", "Español"},
+					{"ENGLISH_LOCALE_BUTTON", "Inglés"},
+					{"CONTRIBUTE_BUTTON", "Contribuye"},
+					{"CONTRIBUTE_TEXT", "¿Quieres que tus frases favoritas aparezcan en el juego?\n¡Envíanoslas y te añadiremos en los creditos!"},
 				}
 			);
 			tags.Add (
-				"EN", 
+				"en", 
 				new Dictionary<string, string> {
 					{"LOG_IN_TITLE", "Log in"},
 					{"USERNAME_LABEL", "Username"},
@@ -81,6 +85,10 @@ namespace com.lovelydog
 					{"CATEGORY_5", "History & action"},
 					{"CATEGORY_6", "Other"},
 					{"NOT_YOUR_TURN_TEXT", "Not your turn"},
+					{"SPANISH_LOCALE_BUTTON", "Spanish"},
+					{"ENGLISH_LOCALE_BUTTON", "English"},
+					{"CONTRIBUTE_BUTTON", "Contribute"},
+					{"CONTRIBUTE_TEXT", "Do you want your favorite movie quotes to appear on the game?\nSend them and we will add your name to the credits!"},
 				}
 			);
 		}

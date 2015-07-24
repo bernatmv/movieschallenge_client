@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public static class Properties {
+	// web site
+	public static string webUri = "http://localhost:8080";
 	// general
 	public static Color bgColor = newRGBColor(82, 81, 98);
 	public static float questionCountdownTime = 17f;
