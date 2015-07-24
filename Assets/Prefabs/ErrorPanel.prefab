@@ -78,6 +78,7 @@ GameObject:
   - 224: {fileID: 22480834}
   - 222: {fileID: 22221700}
   - 114: {fileID: 11412180}
+  - 114: {fileID: 11481078}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -114,6 +115,7 @@ GameObject:
   - 224: {fileID: 22417400}
   - 222: {fileID: 22299466}
   - 114: {fileID: 11442274}
+  - 114: {fileID: 11433762}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -147,6 +149,7 @@ GameObject:
   - 224: {fileID: 22471034}
   - 222: {fileID: 22298258}
   - 114: {fileID: 11439080}
+  - 114: {fileID: 11457614}
   m_Layer: 5
   m_Name: ErrorHint
   m_TagString: Untagged
@@ -164,6 +167,7 @@ GameObject:
   - 224: {fileID: 22415892}
   - 222: {fileID: 22219514}
   - 114: {fileID: 11415390}
+  - 114: {fileID: 11412464}
   m_Layer: 5
   m_Name: ErrorText
   m_TagString: Untagged
@@ -181,6 +185,7 @@ GameObject:
   - 224: {fileID: 22490398}
   - 222: {fileID: 22236968}
   - 114: {fileID: 11482918}
+  - 114: {fileID: 11447498}
   m_Layer: 5
   m_Name: LoadingText
   m_TagString: Untagged
@@ -232,7 +237,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Retry
+  m_Text: RETRY_BUTTON
+--- !u!114 &11412464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11415390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,9 +274,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Oops!
-
-    An error has occurred :('
+  m_Text: OOPS_ERROR_TEXT
+--- !u!114 &11433762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11435766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,8 +332,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Movies Challenge requieres an active internet connection, please check that
-    you are online before retrying. Thank you.
+  m_Text: ERROR_HINT_TEXT
 --- !u!114 &11442274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,9 +358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Go to Game Menu
-
-'
+  m_Text: GO_TO_MAIN_MENU_BUTTON
 --- !u!114 &11447280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,6 +368,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd6b715de2a15c543b1535fab6ba378f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11447498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11457614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11465422
@@ -443,6 +487,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11481078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11481168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,7 +544,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Loading...
+  m_Text: LOADING_TEXT
 --- !u!114 &11487090
 MonoBehaviour:
   m_ObjectHideFlags: 1

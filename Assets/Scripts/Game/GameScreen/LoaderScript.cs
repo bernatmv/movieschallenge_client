@@ -87,7 +87,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 		TitleTextScript titleText;
 		// set title
 		titleText = FindObjectOfType<TitleTextScript>();
-		titleText.setTitle ("Turn " + game.turn);
+		titleText.setTitle (_i18n.get ("TURN_TEXT") + " " + game.turn);
 	}
 
 	void updateGame(UnityEngine.Object data) {

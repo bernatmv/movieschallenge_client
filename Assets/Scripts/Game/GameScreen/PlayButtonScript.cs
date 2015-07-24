@@ -100,7 +100,7 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		// if a question is stored, set it's color and title
 		if (!string.IsNullOrEmpty(question._id)) {
 			playImage.color = Properties.categoriesColor [question.category - 1];
-			questionText.text = Properties.categoriesNames[question.category - 1];
+			questionText.text = _i18n.get (Properties.categoriesNames[question.category - 1]);
 		}
 	}
 
@@ -111,12 +111,12 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		if (PlayerPrefs.GetString ("username") == ((GameModel)game).thisTurn) {
 			// enable button, disable question icon
 			playButton.enabled = true;
-			questionText.text = "Tap me!";
+			questionText.text = _i18n.get ("TAP_ME_BUTTON");
 		} 
 		else {
 			// disable button, enable not your turn text
 			playButton.enabled = false;
-			questionText.text = "NOT YOUR TURN";
+			questionText.text = _i18n.get ("NOT_YOUR_TURN_TEXT");
 		}
 	}
 

@@ -28,6 +28,7 @@ GameObject:
   - 224: {fileID: 22482194}
   - 222: {fileID: 22279978}
   - 114: {fileID: 11414472}
+  - 114: {fileID: 11488650}
   m_Layer: 5
   m_Name: PasswordLabel
   m_TagString: Untagged
@@ -45,6 +46,7 @@ GameObject:
   - 224: {fileID: 22413790}
   - 222: {fileID: 22233630}
   - 114: {fileID: 11485724}
+  - 114: {fileID: 11440664}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -79,6 +81,7 @@ GameObject:
   - 224: {fileID: 22493532}
   - 222: {fileID: 22223598}
   - 114: {fileID: 11413506}
+  - 114: {fileID: 11496246}
   m_Layer: 5
   m_Name: UsernameLabel
   m_TagString: Untagged
@@ -130,6 +133,7 @@ GameObject:
   - 224: {fileID: 22423166}
   - 222: {fileID: 22265410}
   - 114: {fileID: 11478840}
+  - 114: {fileID: 11498094}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -165,6 +169,7 @@ GameObject:
   - 224: {fileID: 22487578}
   - 222: {fileID: 22254172}
   - 114: {fileID: 11420216}
+  - 114: {fileID: 11451650}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -182,6 +187,7 @@ GameObject:
   - 224: {fileID: 22492228}
   - 222: {fileID: 22225436}
   - 114: {fileID: 11408156}
+  - 114: {fileID: 11442192}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -302,7 +308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Log in
+  m_Text: LOG_IN_TITLE
 --- !u!114 &11413506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,9 +334,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Username
-
-'
+  m_Text: USERNAME_LABEL
 --- !u!114 &11414472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,9 +360,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Password
-
-'
+  m_Text: PASSWORD_LABEL
 --- !u!114 &11420216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,7 +386,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Password
+  m_Text: PASSWORD_LABEL
 --- !u!114 &11434362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,6 +413,39 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &11440664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11442192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11451650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11453790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,7 +591,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Username
+  m_Text: USERNAME_LABEL
 --- !u!114 &11481416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -603,7 +638,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Submit
+  m_Text: SUBMIT_BUTTON
 --- !u!114 &11485818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -674,6 +709,28 @@ MonoBehaviour:
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
   m_Text: 
   m_CaretBlinkRate: 1.70000005
+--- !u!114 &11488650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11496246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11496294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -695,6 +752,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11498094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &22214434
 CanvasRenderer:
   m_ObjectHideFlags: 1

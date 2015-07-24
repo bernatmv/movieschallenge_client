@@ -16,12 +16,12 @@ public static class Properties {
 	public static int timeout = 10;
 	// categories config
 	public static string[] categoriesNames = new string[] {
-		"Family",
-		"Romantic",
-		"SiFi & fantasy",
-		"Humor",
-		"History & action",
-		"Other"
+		"CATEGORY_1",
+		"CATEGORY_2",
+		"CATEGORY_3",
+		"CATEGORY_4",
+		"CATEGORY_5",
+		"CATEGORY_6"
 	};
 	public static Color categoryIconColor = newRGBColor(0, 0, 0);
 	public static Color[] categoriesColor = new Color[] {

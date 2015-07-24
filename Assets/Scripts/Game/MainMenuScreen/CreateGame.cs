@@ -80,6 +80,7 @@ public class CreateGame : FacadeMonoBehaviour {
 			// if the challenged user didn't exist in the DB, inform the user
 			if (newGame.errorCode == 404) {
 				_dispatcher.Dispatch("error_new_game_no_exists_challenged");
+				GameAnalytics.NewErrorEvent (GA_Error.GAErrorSeverity.GAErrorSeverityWarning, "Create game with non-existing user: " + PlayerPrefs.GetString("username"));
 			}
 		}
 	}

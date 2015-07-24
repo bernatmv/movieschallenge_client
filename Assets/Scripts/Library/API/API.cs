@@ -5,6 +5,7 @@ using System.Collections;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
+using GameAnalyticsSDK;
 
 namespace com.lovelydog
 {
@@ -45,7 +46,6 @@ namespace com.lovelydog
 
 		protected void CreateRequest(string action, Action<HTTPRequest, HTTPResponse> callback, HTTPMethods methodType = HTTPMethods.Get) {
 			request = new HTTPRequest (new Uri (_host + action), methodType, (HTTPRequest req, HTTPResponse res) => {
-				Debug.Log (res.DataAsText);
 				// if finished correctly
 				if (req.State == HTTPRequestStates.Finished) {
 					ClearError();
@@ -53,9 +53,9 @@ namespace com.lovelydog
 				}
 				// if not show an error with a retry and/or a go back to main menu
 				else {
-					//TODO: log to analytics
 					Debug.Log (req.State);
 					ShowError();
+					GameAnalytics.NewErrorEvent (GA_Error.GAErrorSeverity.GAErrorSeverityCritical , "Failed connection: " + PlayerPrefs.GetString("username") + " | " + action + " | " + req.State);
 				}
 			});
 			// add options

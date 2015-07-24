@@ -148,6 +148,7 @@ GameObject:
   - 224: {fileID: 22402906}
   - 222: {fileID: 22230040}
   - 114: {fileID: 11426392}
+  - 114: {fileID: 11451712}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -343,6 +344,7 @@ GameObject:
   - 222: {fileID: 22286044}
   - 114: {fileID: 11400204}
   - 114: {fileID: 11422836}
+  - 114: {fileID: 11447152}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -393,6 +395,7 @@ GameObject:
   - 224: {fileID: 22409486}
   - 222: {fileID: 22229586}
   - 114: {fileID: 11480606}
+  - 114: {fileID: 11493428}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -528,9 +531,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Turn
-
-'
+  m_Text: TURN_TEXT
 --- !u!114 &11401620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -707,7 +708,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Novice
+  m_Text: LVL1_TITLE
 --- !u!114 &11429046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -895,6 +896,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 1
+--- !u!114 &11447152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11448712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -916,6 +928,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11451712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11451910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1184,7 +1207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Novice
+  m_Text: LVL1_TITLE
 --- !u!114 &11483922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1260,6 +1283,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77aec918adbf5df409a2ddf6e8264a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11493428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11494058

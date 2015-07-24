@@ -424,6 +424,7 @@ GameObject:
   - 222: {fileID: 299509355}
   - 114: {fileID: 299509354}
   - 114: {fileID: 299509353}
+  - 114: {fileID: 299509356}
   m_Layer: 5
   m_Name: Wrong
   m_TagString: Untagged
@@ -490,7 +491,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MOOOOC!
+  m_Text: WRONG_MESSAGE
 --- !u!222 &299509355
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -498,6 +499,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 299509351}
+--- !u!114 &299509356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299509351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &359851022
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,6 +696,7 @@ GameObject:
   - 224: {fileID: 421094703}
   - 222: {fileID: 421094705}
   - 114: {fileID: 421094704}
+  - 114: {fileID: 421094706}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -733,15 +746,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Playing to complete the category
-
-    XXXXXXXXXXX'
+  m_Text: STAR_QUESTION_TITLE
 --- !u!222 &421094705
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421094702}
+--- !u!114 &421094706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421094702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &443711040
 Prefab:
   m_ObjectHideFlags: 0
@@ -1019,6 +1041,7 @@ GameObject:
   - 224: {fileID: 597607792}
   - 222: {fileID: 597607794}
   - 114: {fileID: 597607793}
+  - 114: {fileID: 597607795}
   m_Layer: 5
   m_Name: LoseText
   m_TagString: Untagged
@@ -1068,13 +1091,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You lost!
+  m_Text: YOU_LOST_TEXT
 --- !u!222 &597607794
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 597607791}
+--- !u!114 &597607795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 597607791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626882053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1119,7 @@ GameObject:
   - 224: {fileID: 626882054}
   - 222: {fileID: 626882056}
   - 114: {fileID: 626882055}
+  - 114: {fileID: 626882057}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1134,13 +1169,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap me!
+  m_Text: TAP_ME_BUTTON
 --- !u!222 &626882056
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 626882053}
+--- !u!114 &626882057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626882053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &642250985 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22432300, guid: cd1f47ddf6b2bfe4bae4737ef778357c,
@@ -1581,6 +1627,88 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 759928750}
+--- !u!1001 &818874186
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1388341567}
+    m_Modifications:
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_Pivot.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+      propertyPath: m_Pivot.y
+      value: .5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 726606787af83d146b073b6b5440a79c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &833243214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ddceb8f06ae824abfcf73b7e9e0dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &970390668 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22482208, guid: 726606787af83d146b073b6b5440a79c,
+    type: 2}
+  m_PrefabInternal: {fileID: 818874186}
 --- !u!1 &1056239648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2463,7 @@ GameObject:
   - 224: {fileID: 1056239649}
   - 222: {fileID: 1056239651}
   - 114: {fileID: 1056239650}
+  - 114: {fileID: 1056239652}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2379,13 +2513,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Menu
+  m_Text: GO_MENU_BUTTON
 --- !u!222 &1056239651
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1056239648}
+--- !u!114 &1056239652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056239648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1075545758
 Prefab:
   m_ObjectHideFlags: 0
@@ -2986,6 +3131,7 @@ RectTransform:
   m_Children:
   - {fileID: 895724183}
   - {fileID: 833243215}
+  - {fileID: 970390668}
   m_Father: {fileID: 663665859}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
@@ -3115,6 +3261,7 @@ GameObject:
   - 224: {fileID: 1495091322}
   - 222: {fileID: 1495091324}
   - 114: {fileID: 1495091323}
+  - 114: {fileID: 1495091325}
   m_Layer: 5
   m_Name: TextFail
   m_TagString: Untagged
@@ -3164,14 +3311,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you answer correctly you will complete this category, but be careful!
-    If you choose the wrong answer, you will lose all progress on this category!
+  m_Text: STAR_QUESTION_HINT
 --- !u!222 &1495091324
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495091321}
+--- !u!114 &1495091325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495091321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1533999372
 Prefab:
   m_ObjectHideFlags: 0
@@ -3382,6 +3539,7 @@ GameObject:
   - 224: {fileID: 1548187717}
   - 222: {fileID: 1548187719}
   - 114: {fileID: 1548187718}
+  - 114: {fileID: 1548187720}
   m_Layer: 5
   m_Name: TextFail
   m_TagString: Untagged
@@ -3431,13 +3589,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Answer correctly 4 or more questions to win the game
+  m_Text: FINAL_ROUND_HINT
 --- !u!222 &1548187719
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1548187716}
+--- !u!114 &1548187720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1548187716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551099929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,6 +3617,7 @@ GameObject:
   - 224: {fileID: 1551099930}
   - 222: {fileID: 1551099932}
   - 114: {fileID: 1551099931}
+  - 114: {fileID: 1551099933}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -3497,13 +3667,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Final Round!
+  m_Text: FINAL_ROUND_TITLE
 --- !u!222 &1551099932
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1551099929}
+--- !u!114 &1551099933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1551099929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1602048416 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22452344, guid: 7ee526b22e0b41d40a8f7fcc51c5cd84,
@@ -3631,6 +3812,7 @@ GameObject:
   - 222: {fileID: 1660315027}
   - 114: {fileID: 1660315026}
   - 114: {fileID: 1660315025}
+  - 114: {fileID: 1660315028}
   m_Layer: 5
   m_Name: Correct
   m_TagString: Untagged
@@ -3697,7 +3879,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CORRECTO!
+  m_Text: CORRECT_MESSAGE
 --- !u!222 &1660315027
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3705,6 +3887,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1660315023}
+--- !u!114 &1660315028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1660315023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1775034710
 Prefab:
   m_ObjectHideFlags: 0
@@ -4234,6 +4427,7 @@ GameObject:
   - 224: {fileID: 2104363476}
   - 222: {fileID: 2104363478}
   - 114: {fileID: 2104363477}
+  - 114: {fileID: 2104363479}
   m_Layer: 5
   m_Name: WinText
   m_TagString: Untagged
@@ -4283,13 +4477,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You won!
+  m_Text: YOU_WON_TEXT
 --- !u!222 &2104363478
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2104363475}
+--- !u!114 &2104363479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2104363475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7759d09a429d4fb05c6013ddc495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2110547836 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22432300, guid: cd1f47ddf6b2bfe4bae4737ef778357c,

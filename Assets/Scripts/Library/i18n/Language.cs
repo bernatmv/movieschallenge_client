@@ -38,10 +38,15 @@ namespace com.lovelydog
 			PlayerPrefs.SetString ("lang", lang);
 		}
 
-		string get(string tagName) {
+		public string get(string tagName) {
 			string tagValue;
 			tags.TryGetValue (tagName, out tagValue);
-			return tagValue;
+			if (!string.IsNullOrEmpty (tagValue)) {
+				return tagValue;
+			} 
+			else {
+				return tagName;
+			}
 		}
 	}
 }
