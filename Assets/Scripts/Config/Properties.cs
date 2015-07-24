@@ -60,6 +60,9 @@ public static class Properties {
 	public static float starQuestionDelay = 3f;
 	public static int starQuestion = 3;
 	public static int completedQuestion = 4;
+	// quote colors
+	public static string quoteColor1 = "000000ff";
+	public static string quoteColor2 = "0000a0ff";
 
 	// methods
 	public static Color newRGBColor(int red, int green, int blue, int alpha = 255) {

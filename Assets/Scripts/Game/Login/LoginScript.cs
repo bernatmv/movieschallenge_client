@@ -12,7 +12,7 @@ public class LoginScript : FacadeMonoBehaviour {
 		//PlayerPrefs.SetString ("token", ""); //TODO: remove this, it-s just for testing (dirty)
 		if (!string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
 			// if we already have an authenticated token, load the MainMenu
-			//_utils.loadScene("MainMenu");
+			_utils.loadScene("MainMenu");
 		} 
 	}
 
