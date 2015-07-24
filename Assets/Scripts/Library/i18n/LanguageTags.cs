@@ -48,6 +48,7 @@ namespace com.lovelydog
 					{"ENGLISH_LOCALE_BUTTON", "Inglés"},
 					{"CONTRIBUTE_BUTTON", "Contribuye"},
 					{"CONTRIBUTE_TEXT", "¿Quieres que tus frases favoritas aparezcan en el juego?\n¡Envíanoslas y te añadiremos en los creditos!"},
+					{"GAME_TITLE", "Desafío de Películas"},
 				}
 			);
 			tags.Add (
@@ -65,7 +66,7 @@ namespace com.lovelydog
 					{"RANDOM_BUTTON", "Random"},
 					{"OOPS_ERROR_TEXT", "Oops!\nSomething unexpected happened :("},
 					{"RETRY_BUTTON", "Retry"},
-					{"GO_TO_MAIN_MENU_BUTTON", "Go to the games menu"},
+					{"GO_TO_MAIN_MENU_BUTTON", "Go to games menu"},
 					{"LOADING_TEXT", "Loading..."},
 					{"ERROR_HINT_TEXT", "Movies Challenge requieres an active internet connection, please check that you are online before retrying. Thank you."},
 					{"GO_MENU_BUTTON", "Menu"},
@@ -89,6 +90,7 @@ namespace com.lovelydog
 					{"ENGLISH_LOCALE_BUTTON", "English"},
 					{"CONTRIBUTE_BUTTON", "Contribute"},
 					{"CONTRIBUTE_TEXT", "Do you want your favorite movie quotes to appear on the game?\nSend them and we will add your name to the credits!"},
+					{"GAME_TITLE", "Movies Challenge"},
 				}
 			);
 		}
