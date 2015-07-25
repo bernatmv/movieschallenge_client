@@ -39,7 +39,7 @@ public class FinalRoundLogicScript : FacadeMonoBehaviour {
 		// parse response
 		questions = JsonMapper.ToObject<QuestionModel[]> (res.DataAsText);
 		// launch first question
-		nextQuestion ();
+		firstQuestion ();
 	}
 
 	void nextFinalRoundQuestion(Object data) {
@@ -58,7 +58,7 @@ public class FinalRoundLogicScript : FacadeMonoBehaviour {
 			}
 		} 
 		else {
-			nextQuestion (2.5f);
+			nextQuestion (.15f);
 		}
 	}
 
@@ -84,23 +84,42 @@ public class FinalRoundLogicScript : FacadeMonoBehaviour {
 		}
 	}
 
-	void nextQuestion(float delay = 3.5f) {
+	void nextQuestion(float delay = .5f) {
 		// save questionId
 		PlayerPrefs.SetString ("questionId", questions[currentQuestion]._id);
 		// deay action and launch question
-		initPanel (1f);
+		Utils.delayAction (this, () => {
+			_dispatcher.Dispatch ("fade_in_screen");
+			Utils.delayAction (this, () => {
+				resetEnvironment();
+				// dispatch event to start question
+				_dispatcher.Dispatch ("question_loaded", questions[currentQuestion]);
+				// fadeout panel
+				_dispatcher.Dispatch ("fade_out_screen");
+				currentQuestion++;
+			}, 
+			delay);
+		}, 
+		.2f);
+	}
+
+	void firstQuestion(float delay = 2.5f) {
+		// save questionId
+		PlayerPrefs.SetString ("questionId", questions[currentQuestion]._id);
+		// deay action and launch question
+		initPanel (.25f);
 		Utils.delayAction (this, () => {
 			resetEnvironment();
 			// dispatch event to start question
 			_dispatcher.Dispatch ("question_loaded", questions[currentQuestion]);
 			// fadeout panel
-			Utils.fadeOutPanel (this, panel, .6f, () => {
+			Utils.fadeOutPanel (this, panel, .4f, () => {
 				currentQuestion++;
 			});
 		}, 
 		delay);
 	}
-
+	
 	void resetEnvironment() {
 		// reset question-answers
 		_dispatcher.Dispatch ("reset_answers");
@@ -108,11 +127,11 @@ public class FinalRoundLogicScript : FacadeMonoBehaviour {
 		_dispatcher.Dispatch("message_correct_hide");
 	}
 
-	void initPanel(float delay = .4f) {
+	void initPanel(float delay = .01f) {
 		// show panel
 		Utils.delayAction (this, () => {
 			// fadein panel
-			Utils.fadeInPanel (this, panel, .6f, () => {});
+			Utils.fadeInPanel (this, panel, .4f, () => {});
 		}, 
 		delay);
 	}
