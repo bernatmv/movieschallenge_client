@@ -4,7 +4,7 @@ using System.Collections;
 
 public static class Properties {
 	// web site
-	public static string webUri = "http://localhost:8080";
+	public static string webUri = "https://arcane-earth-1212.herokuapp.com";
 	// general
 	public static Color bgColor = newRGBColor(82, 81, 98);
 	public static float questionCountdownTime = 17f;
@@ -13,7 +13,7 @@ public static class Properties {
 	public static Color titleBgChallenger = newRGBColor(244, 111, 110);
 	public static Color titleBgChallenged = newRGBColor(27, 211, 177);
 	// api config
-	public static string API = "http://localhost:8080/api";
+	public static string API = "https://arcane-earth-1212.herokuapp.com/api";
 	public static int connectTimeout = 3;
 	public static int timeout = 10;
 	// categories config

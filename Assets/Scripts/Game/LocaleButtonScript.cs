@@ -21,7 +21,9 @@ public class LocaleButtonScript : FacadeMonoBehaviour {
 	void updateLocaleButton() {
 		if (locale == currentLocale) {
 			localeButton.interactable = false;
-			buttonShadow.enabled = false;
+			if (buttonShadow) {
+				buttonShadow.enabled = false;
+			}
 		}
 	}
 
