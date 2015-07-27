@@ -5,7 +5,7 @@ using com.lovelydog;
 
 public class PlayerRightNameScript : MonoBehaviour {
 
-	Text name;
+	new Text name;
 	string _rawName;
 
 	void Awake() {
