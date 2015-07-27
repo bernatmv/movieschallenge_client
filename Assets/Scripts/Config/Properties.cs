@@ -3,10 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 
 public static class Properties {
-	// web site
-	public static string webUri = "https://arcane-earth-1212.herokuapp.com";
-	// reload scroll offset
-	public static float reloadScrollOffset = -150f;
 	// general
 	public static Color bgColor = newRGBColor(82, 81, 98);
 	public static float questionCountdownTime = 17f;
@@ -14,10 +10,14 @@ public static class Properties {
 	public static Color titleBgMenu = newRGBColor(255, 255, 255, 20);
 	public static Color titleBgChallenger = newRGBColor(244, 111, 110);
 	public static Color titleBgChallenged = newRGBColor(27, 211, 177);
+	// web site
+	public static string webUri = "https://arcane-earth-1212.herokuapp.com";
+	// reload scroll offset
+	public static float reloadScrollOffset = -80f;
 	// api config
 	public static string API = "https://arcane-earth-1212.herokuapp.com/api";
-	public static int connectTimeout = 3;
-	public static int timeout = 10;
+	public static int connectTimeout = 4;
+	public static int timeout = 12;
 	// categories config
 	public static string[] categoriesNames = new string[] {
 		"CATEGORY_1",
