@@ -38,6 +38,7 @@ public class GamesLoader : FacadeMonoBehaviour {
 			buildGamesList(games);
 		});
 		request.showGoBack = false;
+		request.interstitialLoading = true;
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
 		request.Send ();
 	}

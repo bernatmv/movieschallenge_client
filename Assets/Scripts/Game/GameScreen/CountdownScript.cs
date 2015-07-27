@@ -10,7 +10,7 @@ public class CountdownScript : FacadeMonoBehaviour {
 	Text countdownText;
 	float countdownTime;
 	float deltaTime = 0f;
-	new bool active = false;
+	bool active = false;
 	float imageWidth = 640f;
 	float imageHeight = 50f;
 	float imageWidthStep;

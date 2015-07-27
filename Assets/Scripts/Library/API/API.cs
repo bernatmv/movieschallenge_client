@@ -15,6 +15,7 @@ namespace com.lovelydog
 		protected Dispatcher<UnityEngine.Object> _dispatcher = Dispatcher<UnityEngine.Object>.Instance;
 		public bool showRetry = true;
 		public bool showGoBack = true;
+		public bool interstitialLoading = false;
 		public HTTPRequest request;
 
 		public API() {}
@@ -31,6 +32,9 @@ namespace com.lovelydog
 		}
 
 		public void Send() {
+			if (interstitialLoading) {
+				_dispatcher.Dispatch("loading_interstitial_open");
+			}
 			request.Send ();
 		}
 		
@@ -46,6 +50,9 @@ namespace com.lovelydog
 
 		protected void CreateRequest(string action, Action<HTTPRequest, HTTPResponse> callback, HTTPMethods methodType = HTTPMethods.Get) {
 			request = new HTTPRequest (new Uri (_host + action), methodType, (HTTPRequest req, HTTPResponse res) => {
+				if (interstitialLoading) {
+					_dispatcher.Dispatch("loading_interstitial_close");
+				}
 				// if finished correctly
 				if (req.State == HTTPRequestStates.Finished) {
 					ClearError();

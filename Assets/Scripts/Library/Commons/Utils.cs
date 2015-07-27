@@ -19,11 +19,17 @@ namespace com.lovelydog
 		}
 
 		public static void fadeInPanel (MonoBehaviour context, CanvasGroup canvas, float aTime, Action callback) {
-			context.StartCoroutine (Utils.fadePanel (canvas, aTime, callback, 1f));
+			context.StartCoroutine (Utils.fadePanel (canvas, aTime, () => {
+				Utils.showCanvas(canvas);
+				callback();
+			}, 1f));
 		}
 
 		public static void fadeOutPanel (MonoBehaviour context, CanvasGroup canvas, float aTime, Action callback) {
-			context.StartCoroutine (Utils.fadePanel (canvas, aTime, callback, 0f));
+			context.StartCoroutine (Utils.fadePanel (canvas, aTime, () => {
+				Utils.hideCanvas(canvas);
+				callback();
+			}, 0f));
 		}
 		
 		public static IEnumerator fadePanel (CanvasGroup canvas, float aTime, Action callback, float newAlpha)

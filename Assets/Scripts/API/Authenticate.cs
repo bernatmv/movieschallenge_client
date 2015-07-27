@@ -38,6 +38,7 @@ public class Authenticate {
 		req.Post ("/authenticate", onAuthenticationFinished);
 		req.AddField ("username", username);
 		req.AddField ("password", password);
+		req.interstitialLoading = true;
 		req.Send ();
 	}
 

@@ -118,6 +118,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 			_dispatcher.Dispatch("message_wrong_show");
 		} 
 		else {
+			answerImage.color = Properties.colorRight;
 			_dispatcher.Dispatch("message_correct_show");
 		}
 	}

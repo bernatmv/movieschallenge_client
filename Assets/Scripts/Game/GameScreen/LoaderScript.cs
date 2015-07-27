@@ -40,6 +40,7 @@ public class LoaderScript : FacadeMonoBehaviour {
 			buildScene (game);
 		});
 		request.AddField ("token", PlayerPrefs.GetString ("token"));
+		request.interstitialLoading = true;
 		request.Send ();
 	}
 

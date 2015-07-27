@@ -44,6 +44,7 @@ namespace com.lovelydog
 					{"CATEGORY_4", "Humor"},
 					{"CATEGORY_5", "Historia y acción"},
 					{"CATEGORY_6", "Otras"},
+					{"NOT_YOUR_TURN_TEXT", "No es tu turno"},
 					{"SPANISH_LOCALE_BUTTON", "Español"},
 					{"ENGLISH_LOCALE_BUTTON", "Inglés"},
 					{"CONTRIBUTE_BUTTON", "Contribuye"},
