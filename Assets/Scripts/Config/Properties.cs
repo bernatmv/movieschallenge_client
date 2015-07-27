@@ -5,6 +5,8 @@ using System.Collections;
 public static class Properties {
 	// web site
 	public static string webUri = "https://arcane-earth-1212.herokuapp.com";
+	// reload scroll offset
+	public static float reloadScrollOffset = -150f;
 	// general
 	public static Color bgColor = newRGBColor(82, 81, 98);
 	public static float questionCountdownTime = 17f;

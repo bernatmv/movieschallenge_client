@@ -34,13 +34,12 @@ public class PlayQuestionLogicScript : FacadeMonoBehaviour {
 		// if it's NOT a star or end game question, then make a fadeIn
 		if (question.difficulty < 3) {
 			Utils.fadeInPanel(this, canvas, .8f, () => {
-				canvas.blocksRaycasts = true;
+				Utils.showCanvas(canvas);
 			});
 		} 
 		// if it's a star or end game question, show immediately
 		else {
-			canvas.alpha = 1;
-			canvas.blocksRaycasts = true;
+			Utils.showCanvas(canvas);
 		}
 	}
 
