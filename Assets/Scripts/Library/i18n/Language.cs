@@ -36,6 +36,7 @@ namespace com.lovelydog
 			lang = newLang;
 			validateLang ();
 			PlayerPrefs.SetString ("lang", lang);
+			PlayerPrefs.Save();
 		}
 
 		public string getLocale() {

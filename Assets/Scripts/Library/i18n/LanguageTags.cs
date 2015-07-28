@@ -53,9 +53,10 @@ namespace com.lovelydog
 					{"CONTRIBUTE_TEXT", "¿Quieres que tus frases favoritas aparezcan en el juego?\n¡Envíanoslas y te añadiremos en los creditos!"},
 					{"GAME_TITLE", "Desafío de Películas"},
 					{"NEW_USER_BUTTON", "Crear nuevo usuario"},
+					{"LOGIN_BUTTON", "Login"},
 					{"REGISTER_TITLE", "Nuevo usuario"},
 					{"EMAIL_LABEL", "Correo"},
-				{"EMAIL_LABEL_PLACEHOLDER", "Se usará para recuperación de contraseña"},
+					{"EMAIL_LABEL_PLACEHOLDER", "Se usará para recuperación de contraseña"},
 				}
 			);
 			tags.Add (
@@ -101,6 +102,7 @@ namespace com.lovelydog
 					{"CONTRIBUTE_TEXT", "Do you want your favorite movie quotes to appear on the game?\nSend them and we will add your name to the credits!"},
 					{"GAME_TITLE", "Movies Challenge"},
 					{"NEW_USER_BUTTON", "Create new user"},
+					{"LOGIN_BUTTON", "Login"},
 					{"REGISTER_TITLE", "New user"},
 					{"EMAIL_LABEL", "Email"},
 					{"EMAIL_LABEL_PLACEHOLDER", "Used to recover password"},

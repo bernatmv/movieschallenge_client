@@ -11,25 +11,28 @@ public class GamesLoader : FacadeMonoBehaviour {
 	public RectTransform activeGamePrefab;
 	public RectTransform oldGamePrefab;
 	public RectTransform gameParent;
+	Authenticate auth = new Authenticate ();
 
 	void Awake() {
+		Debug.Log ("GamesLoader awake");
 		// bind events
 		this._dispatcher.AddListener ("auth_finished", buildScene);
 	}
 
 	void Start () {
+		Debug.Log ("GamesLoader start");
 		// authenticate
-		Authenticate auth = new Authenticate ();
 		auth.authenticate ();
 	}
 
 	void OnApplicationPause(bool paused) {
 		if (paused) {
 			Debug.Log ("The app has JUST PAUSED");
+			PlayerPrefs.Save();
 		}
 		else {
 			Debug.Log ("The app has JUST RESUMED");
-			getGames();
+			auth.authenticate ();
 		}
 	}
 

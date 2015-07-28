@@ -14,7 +14,7 @@ public class SimulateNativeReloadScript : FacadeMonoBehaviour {
 
 	void FixedUpdate () {
 		if (content.offsetMax.y < Properties.reloadScrollOffset) {
-			//_utils.reloadScene();
+			_utils.reloadScene();
 		}
 	}
 }

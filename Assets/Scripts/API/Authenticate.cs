@@ -35,15 +35,32 @@ public class Authenticate {
 
 	void doAuthentication(string username, string password) {
 		GameAnalytics.NewDesignEvent ("ui:user:login");
-		// if there is no token stored, negotiate a new one
-		API req = new API ();
-		req.Post ("/authenticate", onAuthenticationFinished);
-		req.AddField ("username", username);
-		req.AddField ("password", password);
-		req.interstitialLoading = true;
-		req.Send ();
+		if (!string.IsNullOrEmpty (username)
+		    && !string.IsNullOrEmpty (password)) {
+			API req = new API ();
+			req.Post ("/authenticate", onAuthenticationFinished);
+			req.AddField ("username", username);
+			req.AddField ("password", password);
+			req.interstitialLoading = true;
+			req.Send ();
+		}
 	}
 
+	public void createUser(string username, string password, string email) {
+		GameAnalytics.NewDesignEvent ("ui:user:login");
+		if (!string.IsNullOrEmpty (username)
+			&& !string.IsNullOrEmpty (password)
+			&& !string.IsNullOrEmpty (email)) {
+			API req = new API ();
+			req.Post ("/user", onAuthenticationFinished);
+			req.AddField ("username", username);
+			req.AddField ("password", password);
+			req.AddField ("email", email);
+			req.interstitialLoading = true;
+			req.Send ();
+		}
+	}
+	
 	void onAuthenticationFinished(HTTPRequest req, HTTPResponse res) {
 		JsonReader json = new JsonReader (res.DataAsText);
 		json.SkipNonMembers = true;
@@ -54,6 +71,7 @@ public class Authenticate {
 			// save to player preferences
 			PlayerPrefs.SetString ("token", token.token);
 			PlayerPrefs.SetString ("username", token.username);
+			PlayerPrefs.Save();
 			// when we finish the authentication process, load the main menu
 			utils.loadScene("MainMenu");
 		}
