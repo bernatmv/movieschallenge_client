@@ -93,13 +93,4 @@ public class CreateGame : FacadeMonoBehaviour {
 	void enableButton(Object data) {
 		newGameButton.enabled = true;
 	}
-
-	public void activateButton(string text) {
-		if (!string.IsNullOrEmpty (text)) {
-			newGameButton.interactable = true;
-		} 
-		else {
-			newGameButton.interactable = false;
-		}
-	}
 }

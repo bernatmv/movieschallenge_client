@@ -684,7 +684,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1429301570}
   m_Direction: 2
   m_Value: 1
-  m_Size: .89089638
+  m_Size: .889260948
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1186,6 +1186,18 @@ Prefab:
     - target: {fileID: 22421494, guid: b7ddb452935f8ee4e8fe1e72369c9a69, type: 2}
       propertyPath: m_Pivot.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22535754, guid: b7ddb452935f8ee4e8fe1e72369c9a69, type: 2}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436616, guid: b7ddb452935f8ee4e8fe1e72369c9a69, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436616, guid: b7ddb452935f8ee4e8fe1e72369c9a69, type: 2}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ddb452935f8ee4e8fe1e72369c9a69, type: 2}
