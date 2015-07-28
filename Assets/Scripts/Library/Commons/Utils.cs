@@ -76,15 +76,19 @@ namespace com.lovelydog
 		}
 
 		public static void hideCanvas(CanvasGroup canvas) {
-			canvas.interactable = false;
-			canvas.blocksRaycasts = false;
-			canvas.alpha = 0f;
+			if (canvas != null) {
+				canvas.interactable = false;
+				canvas.blocksRaycasts = false;
+				canvas.alpha = 0f;
+			}
 		}
 
 		public static void showCanvas(CanvasGroup canvas) {
-			canvas.alpha = 1f;
-			canvas.interactable = true;
-			canvas.blocksRaycasts = true;
+			if (canvas != null) {
+				canvas.alpha = 1f;
+				canvas.interactable = true;
+				canvas.blocksRaycasts = true;
+			}
 		}
 
 		public static void openWebSite(string uri) {

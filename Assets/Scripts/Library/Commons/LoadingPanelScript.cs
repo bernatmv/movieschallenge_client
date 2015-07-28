@@ -14,23 +14,27 @@ public class LoadingPanelScript : FacadeMonoBehaviour {
 		// bind events
 		_dispatcher.AddListener ("loading_interstitial_open", open);
 		_dispatcher.AddListener ("loading_interstitial_close", close);
+		Debug.Log ("==============");
+		Debug.Log (panel);
 	}
 
 	void open(Object data) {
+		Debug.Log ("++++++++++++");
+		Debug.Log (panel);
 		show (panel);
 	}
 
 	void close(Object data) {
+		Debug.Log ("------------");
+		Debug.Log (panel);
 		hide (panel);
 	}
 	
 	void hide(CanvasGroup canvas) {
-		canvas.alpha = 0;
-		canvas.blocksRaycasts = false;
+		Utils.hideCanvas (canvas);
 	}
 	
 	void show(CanvasGroup canvas) {
-		canvas.alpha = 1;
-		canvas.blocksRaycasts = true;
+		Utils.showCanvas (canvas);
 	}	
 }

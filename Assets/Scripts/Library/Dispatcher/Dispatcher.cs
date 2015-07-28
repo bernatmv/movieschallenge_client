@@ -22,6 +22,7 @@ namespace com.lovelydog {
 		}
 
 		public void Dispatch(string eventId, T eventData = default(T)) {
+			Debug.Log (eventId);
 			List<Action<T>> list;
 			if (_signal.TryGetValue (eventId, out list)) {
 				foreach (Action<T> callback in list) {
