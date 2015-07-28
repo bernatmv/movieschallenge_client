@@ -5,6 +5,7 @@ using com.lovelydog;
 using com.lovelydog.movieschallenge;
 using BestHTTP;
 using LitJson;
+using GameAnalyticsSDK;
 
 public class GamesLoader : FacadeMonoBehaviour {
 
@@ -27,11 +28,13 @@ public class GamesLoader : FacadeMonoBehaviour {
 
 	void OnApplicationPause(bool paused) {
 		if (paused) {
+			GameAnalytics.NewDesignEvent ("app:status:paused");
 			Debug.Log ("The app has JUST PAUSED");
 			PlayerPrefs.Save();
 		}
 		else {
 			Debug.Log ("The app has JUST RESUMED");
+			GameAnalytics.NewDesignEvent ("app:status:resumed");
 			auth.authenticate ();
 		}
 	}
