@@ -23,6 +23,16 @@ public class GamesLoader : FacadeMonoBehaviour {
 		auth.authenticate ();
 	}
 
+	void OnApplicationPause(bool paused) {
+		if (paused) {
+			Debug.Log ("The app has JUST PAUSED");
+		}
+		else {
+			Debug.Log ("The app has JUST RESUMED");
+			getGames();
+		}
+	}
+
 	// build the scene
 	void buildScene(Object param) {
 		getGames ();

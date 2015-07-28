@@ -47,9 +47,15 @@ namespace com.lovelydog
 					{"NOT_YOUR_TURN_TEXT", "No es tu turno"},
 					{"SPANISH_LOCALE_BUTTON", "Español"},
 					{"ENGLISH_LOCALE_BUTTON", "Inglés"},
-					{"CONTRIBUTE_BUTTON", "Contribuye"},
+					{"CONTRIBUTE_BUTTON_APP", "Contribuye"},
+					{"CONTRIBUTE_BUTTON_WEB", "Abre la web"},
+					{"LOGOUT_BUTTON", "Logout"},
 					{"CONTRIBUTE_TEXT", "¿Quieres que tus frases favoritas aparezcan en el juego?\n¡Envíanoslas y te añadiremos en los creditos!"},
 					{"GAME_TITLE", "Desafío de Películas"},
+					{"NEW_USER_BUTTON", "Crear nuevo usuario"},
+					{"REGISTER_TITLE", "Nuevo usuario"},
+					{"EMAIL_LABEL", "Correo"},
+				{"EMAIL_LABEL_PLACEHOLDER", "Se usará para recuperación de contraseña"},
 				}
 			);
 			tags.Add (
@@ -89,9 +95,15 @@ namespace com.lovelydog
 					{"NOT_YOUR_TURN_TEXT", "Not your turn"},
 					{"SPANISH_LOCALE_BUTTON", "Spanish"},
 					{"ENGLISH_LOCALE_BUTTON", "English"},
-					{"CONTRIBUTE_BUTTON", "Contribute"},
+					{"CONTRIBUTE_BUTTON_APP", "Contribute"},
+					{"CONTRIBUTE_BUTTON_WEB", "Open web"},
+					{"LOGOUT_BUTTON", "Logout"},
 					{"CONTRIBUTE_TEXT", "Do you want your favorite movie quotes to appear on the game?\nSend them and we will add your name to the credits!"},
 					{"GAME_TITLE", "Movies Challenge"},
+					{"NEW_USER_BUTTON", "Create new user"},
+					{"REGISTER_TITLE", "New user"},
+					{"EMAIL_LABEL", "Email"},
+					{"EMAIL_LABEL_PLACEHOLDER", "Used to recover password"},
 				}
 			);
 		}

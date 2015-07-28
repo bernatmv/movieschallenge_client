@@ -13,7 +13,7 @@ public static class Properties {
 	// web site
 	public static string webUri = "https://arcane-earth-1212.herokuapp.com";
 	// reload scroll offset
-	public static float reloadScrollOffset = -80f;
+	public static float reloadScrollOffset = -45f;
 	// api config
 	public static string API = "https://arcane-earth-1212.herokuapp.com/api";
 	public static int connectTimeout = 4;

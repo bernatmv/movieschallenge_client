@@ -4,6 +4,7 @@ using com.lovelydog.movieschallenge;
 using com.lovelydog;
 using BestHTTP;
 using LitJson;
+using GameAnalyticsSDK;
 
 public class Authenticate {
 	
@@ -33,6 +34,7 @@ public class Authenticate {
 	}
 
 	void doAuthentication(string username, string password) {
+		GameAnalytics.NewDesignEvent ("ui:user:login");
 		// if there is no token stored, negotiate a new one
 		API req = new API ();
 		req.Post ("/authenticate", onAuthenticationFinished);

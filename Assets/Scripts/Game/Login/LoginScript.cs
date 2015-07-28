@@ -7,6 +7,7 @@ public class LoginScript : FacadeMonoBehaviour {
 
 	[SerializeField] private InputField _username;
 	[SerializeField] private InputField _password;
+	[SerializeField] private InputField _email;
 
 	void Awake () {
 		//PlayerPrefs.SetString ("token", ""); //TODO: remove this, it-s just for testing (dirty)
@@ -17,13 +18,15 @@ public class LoginScript : FacadeMonoBehaviour {
 	}
 
 	public void doLogin() {
-		// TODO: add loading while processing
 		// authenticate
 		Authenticate auth = new Authenticate ();
 		auth.login (_username.text, _password.text);
 		// TODO: show error if failed
 	}
 
+	public void createUser() {
+	}
+	
 	public void setUsername(InputField username) {
 		_username = username;
 	}
