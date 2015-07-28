@@ -15,7 +15,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Loading
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Loading
+    uniqueID: 4085384397
     locked: 0

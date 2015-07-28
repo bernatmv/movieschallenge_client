@@ -651,7 +651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SUBMIT_BUTTON
+  m_Text: LOGIN_SUBMIT_BUTTON
 --- !u!114 &11485818
 MonoBehaviour:
   m_ObjectHideFlags: 1
