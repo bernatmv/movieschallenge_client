@@ -68,12 +68,18 @@ public class Authenticate {
 		Token token = JsonMapper.ToObject<Token> (json);
 		// authentication correct
 		if (token != null) {
-			// save to player preferences
-			PlayerPrefs.SetString ("token", token.token);
-			PlayerPrefs.SetString ("username", token.username);
-			PlayerPrefs.Save();
-			// when we finish the authentication process, load the main menu
-			utils.loadScene("MainMenu");
+			if (token.success) {
+				// save to player preferences
+				PlayerPrefs.SetString ("token", token.token);
+				PlayerPrefs.SetString ("username", token.username);
+				PlayerPrefs.Save();
+				// when we finish the authentication process, load the main menu
+				utils.loadScene("MainMenu");
+			}
+			else {
+				Debug.Log(token.message);
+				_dispatcher.Dispatch("show_error_register_login");
+			}
 		}
 		// authentication erroneous, show error message
 		else {
