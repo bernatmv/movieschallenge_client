@@ -60,6 +60,7 @@ namespace com.lovelydog
 					{"EMAIL_LABEL_PLACEHOLDER", "Se usará para recuperación de contraseña"},
 					{"ERROR_USERNAME_EXISTS", "Este nombre ya existe"},
 					{"ERROR_LOGIN", "Nombre/password incorrecto"},
+					{"CONTRIBUTE_TITLE", "Añade una frase"},
 				}
 			);
 			tags.Add (
@@ -112,6 +113,7 @@ namespace com.lovelydog
 					{"EMAIL_LABEL_PLACEHOLDER", "Used to recover password"},
 					{"ERROR_USERNAME_EXISTS", "Username already exists"},
 					{"ERROR_LOGIN", "Username or password wrong"},
+					{"CONTRIBUTE_TITLE", "Add a quote"},
 				}
 			);
 		}
