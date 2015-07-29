@@ -14,19 +14,13 @@ public class LoadingPanelScript : FacadeMonoBehaviour {
 		// bind events
 		_dispatcher.AddListener ("loading_interstitial_open", open);
 		_dispatcher.AddListener ("loading_interstitial_close", close);
-		Debug.Log ("==============");
-		Debug.Log (panel);
 	}
 
 	void open(Object data) {
-		Debug.Log ("++++++++++++");
-		Debug.Log (panel);
 		show (panel);
 	}
 
 	void close(Object data) {
-		Debug.Log ("------------");
-		Debug.Log (panel);
 		hide (panel);
 	}
 	

@@ -46,12 +46,15 @@ public class GamesLoader : FacadeMonoBehaviour {
 
 	// get games from API
 	void getGames() {
+		_dispatcher.Dispatch ("loading_games_start");
 		// get all the games
 		API request = new API("/games", (HTTPRequest req, HTTPResponse res) => {
 			// deserialize json
 			GameModel[] games = JsonMapper.ToObject<GameModel[]> (res.DataAsText);
 			// build list
 			buildGamesList(games);
+			// signal end of games loading
+			_dispatcher.Dispatch ("loading_games_stop");
 		});
 		request.showGoBack = false;
 		request.interstitialLoading = true;
@@ -60,6 +63,7 @@ public class GamesLoader : FacadeMonoBehaviour {
 	}
 
 	void buildGamesList(GameModel[] games) {
+		cleanContent ();
 		// resize scroll content
 		_dispatcher.Dispatch ("resize_scroll_content", new PayloadObject(games.Length));
 		// build list
@@ -82,6 +86,19 @@ public class GamesLoader : FacadeMonoBehaviour {
 			setPlayersCategories(games[i], gameCanvas);
 			// mark player layer
 			markPlayerLayer(games[i], gameCanvas);
+		}
+	}
+
+	void cleanContent() {
+		bool skipFirst = true;
+		// clean
+		foreach (Transform child in gameParent.transform)	{
+			if (skipFirst) {
+				skipFirst = false;
+			}
+			else {
+				Destroy(child.gameObject);
+			}
 		}
 	}
 
