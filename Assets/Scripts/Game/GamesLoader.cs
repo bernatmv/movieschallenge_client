@@ -35,7 +35,7 @@ public class GamesLoader : FacadeMonoBehaviour {
 		else {
 			Debug.Log ("The app has JUST RESUMED");
 			GameAnalytics.NewDesignEvent ("app:status:resumed");
-			auth.authenticate ();
+			_utils.reloadScene();
 		}
 	}
 
