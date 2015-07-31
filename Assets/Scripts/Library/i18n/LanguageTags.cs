@@ -60,11 +60,12 @@ namespace com.lovelydog
 					{"EMAIL_LABEL_PLACEHOLDER", "Se usará para recuperación de contraseña"},
 					{"ERROR_USERNAME_EXISTS", "Este nombre ya existe"},
 					{"ERROR_LOGIN", "Nombre/password incorrecto"},
-					{"CONTRIBUTE_TITLE", "Añade una frase"},
+					{"CONTRIBUTE_TITLE", "Añade un reto"},
 					{"FORM_QUOTE", "Introduce una de tus frases favoritas de cualquier película. Máximo 350 carácteres. Si quieres introducir un diálogo, haz un salto de línea cada vez que cambie el interlocutor."},
 					{"FORM_CATEGORY", "Categoría de la película."},
 					{"FORM_CORRECT_ANSWER", "Nombre (correcto) de la película. Por favor, Asegúrate que está bien escrito."},
 					{"FORM_WRONG_ANSWER", "Nombre de otra película. Las respuestas incorrectas deben ser plausibles, para que el juego siga siendo un reto."},
+					{"FORM_SEND", "Envíanos el reto"},
 				}
 			);
 			tags.Add (
@@ -117,11 +118,12 @@ namespace com.lovelydog
 					{"EMAIL_LABEL_PLACEHOLDER", "Used to recover password"},
 					{"ERROR_USERNAME_EXISTS", "Username already exists"},
 					{"ERROR_LOGIN", "Username or password wrong"},
-					{"CONTRIBUTE_TITLE", "Add a quote"},
+					{"CONTRIBUTE_TITLE", "Add a challenge"},
 					{"FORM_QUOTE", "Choose one of your favorite movie quotes. Maximum length: 350 characters. If you are writing a dialog, insert a line break when the speaker changes."},
 					{"FORM_CATEGORY", "Movie category."},
 					{"FORM_CORRECT_ANSWER", "Title of the movie quote. Please, make sure the movie title is correct."},
 					{"FORM_WRONG_ANSWER", "Another movie. The wrong answers should be plausible, so the game remains challenging."},
+					{"FORM_SEND", "Send the challenge"},
 				}
 			);
 		}

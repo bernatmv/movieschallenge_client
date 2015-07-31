@@ -15,13 +15,11 @@ public class GamesLoader : FacadeMonoBehaviour {
 	Authenticate auth = new Authenticate ();
 
 	void Awake() {
-		Debug.Log ("GamesLoader awake");
 		// bind events
 		this._dispatcher.AddListener ("auth_finished", buildScene);
 	}
 
 	void Start () {
-		Debug.Log ("GamesLoader start");
 		// authenticate
 		auth.authenticate ();
 	}
@@ -97,8 +95,14 @@ public class GamesLoader : FacadeMonoBehaviour {
 				skipFirst = false;
 			}
 			else {
-				Destroy(child.gameObject);
+				removeChild(child);
 			}
+		}
+	}
+
+	void removeChild(Transform child) {
+		if (child != null) {
+			Destroy(child.gameObject);
 		}
 	}
 
