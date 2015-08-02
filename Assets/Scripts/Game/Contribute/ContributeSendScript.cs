@@ -31,19 +31,35 @@ public class ContributeSendScript : FacadeMonoBehaviour {
 		request.AddField ("category", _category.text);
 		request.AddField ("difficulty", _difficulty);
 		request.AddField ("correctAnswer", _correctAnswer.text);
-		/*
-		request.AddField ("otherAnswers", new string[] {
-			_wrongAnswer1,
-			_wrongAnswer2,
-			_wrongAnswer3,
-			_wrongAnswer4,
-			_wrongAnswer5
-		});*/
-
+		request.AddField ("otherAnswers", JsonMapper.ToJson(new string[] {
+			_wrongAnswer1.text,
+			_wrongAnswer2.text,
+			_wrongAnswer3.text,
+			_wrongAnswer4.text,
+			_wrongAnswer5.text
+		}));
 		request.Send ();
 	}
 
 	void processResponse(HTTPRequest req, HTTPResponse res) {
-
+		Debug.Log (res.DataAsText);
+		JsonReader json = new JsonReader (res.DataAsText);
+		json.SkipNonMembers = true;
+		NewQuestionModel response = JsonMapper.ToObject<NewQuestionModel> (json);
+		Debug.Log (response.success);
+		if (response.success != null) {
+			MessageModel message = new MessageModel();
+			if (response.success) {
+				message.title = _i18n.get("MESSAGE_TITLE_OK");
+				message.text = _i18n.get("MESSAGE_NEW_CHALLENGE_OK");
+				message.color = Properties.colorRight;
+			}
+			else {
+				message.title = _i18n.get("MESSAGE_TITLE_ERROR");
+				message.text = _i18n.get("MESSAGE_NEW_CHALLENGE_ERROR");
+				message.color = Properties.colorWrong;
+			}
+			_dispatcher.Dispatch("message_update", message);
+		}
 	}
 }

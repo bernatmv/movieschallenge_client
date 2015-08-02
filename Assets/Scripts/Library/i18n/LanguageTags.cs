@@ -66,6 +66,10 @@ namespace com.lovelydog
 					{"FORM_CORRECT_ANSWER", "Nombre (correcto) de la película. Por favor, Asegúrate que está bien escrito."},
 					{"FORM_WRONG_ANSWER", "Nombre de otra película. Las respuestas incorrectas deben ser plausibles, para que el juego siga siendo un reto."},
 					{"FORM_SEND", "Envíanos el reto"},
+					{"MESSAGE_TITLE_OK", "Hecho!"},
+					{"MESSAGE_TITLE_ERROR", "Ups!"},
+					{"MESSAGE_NEW_CHALLENGE_OK", "Se ha enviado el nuevo desafío correctamente."},
+					{"MESSAGE_NEW_CHALLENGE_ERROR", "Ha habido un error al enviar el desafío, por favor comprueba que has introducido todos los campos correctamente y has elegido una categoría. Gracias por contribuir a mejorar el juego."},
 				}
 			);
 			tags.Add (
@@ -124,6 +128,10 @@ namespace com.lovelydog
 					{"FORM_CORRECT_ANSWER", "Title of the movie quote. Please, make sure the movie title is correct."},
 					{"FORM_WRONG_ANSWER", "Another movie. The wrong answers should be plausible, so the game remains challenging."},
 					{"FORM_SEND", "Send the challenge"},
+					{"MESSAGE_TITLE_OK", "Done!"},
+					{"MESSAGE_TITLE_ERROR", "Oops!"},
+					{"MESSAGE_NEW_CHALLENGE_OK", "The new challenge has been send successfuly."},
+					{"MESSAGE_NEW_CHALLENGE_ERROR", "An error has occurred while sending the challenge, please make sure that all the field have valid values and that a category is chosen. Thank you for improving the game!"},
 				}
 			);
 		}
