@@ -68,7 +68,7 @@ public class AnswerScript : FacadeMonoBehaviour {
 		else {
 			// send answer to the server
 			sendAnswer ();
-			StartCoroutine(delayAction (answerWait, .8f));
+			StartCoroutine(delayAction (answerWait, Properties.answerRightWrongMessageDuration));
 		}
 	}
 

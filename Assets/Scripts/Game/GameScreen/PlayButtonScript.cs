@@ -49,7 +49,8 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 
 	void beginPlay() {
 		// activate icon, deactivate text and button
-		questionIcon[1].enabled = true;
+		enableQuestionIconInterrogation ();
+		disableQuestionIconLock ();
 		questionText.enabled = false;
 		playButton.enabled = false;
 		callingAPI = true;
@@ -107,22 +108,25 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 	void enableButton(UnityEngine.Object game) {
 		playImage.color = Properties.bgColor;
 		questionText.enabled = true;
-		questionIcon [1].enabled = false;
+		disableQuestionIconInterrogation ();
 		if (PlayerPrefs.GetString ("username") == ((GameModel)game).thisTurn) {
 			// enable button, disable question icon
 			playButton.enabled = true;
 			questionText.text = _i18n.get ("TAP_ME_BUTTON");
+			disableQuestionIconLock();
 		} 
 		else {
 			// disable button, enable not your turn text
 			playButton.enabled = false;
 			questionText.text = _i18n.get ("NOT_YOUR_TURN_TEXT");
+			enableQuestionIconLock();
 		}
 	}
 
 	void disableButton (UnityEngine.Object game = default(UnityEngine.Object)) {
 		playButton.enabled = false;
-		questionIcon [1].enabled = false;
+		disableQuestionIconInterrogation ();
+		disableQuestionIconLock ();
 		questionText.text = "";
 	}
 
@@ -148,5 +152,21 @@ public class PlayButtonScript : FacadeMonoBehaviour {
 		if (minimumTime < Properties.spinMinimumTime) {
 			minimumTime = Properties.spinMinimumTime;
 		}
+	}
+
+	void enableQuestionIconInterrogation() {
+		questionIcon [2].enabled = true;
+	}
+
+	void enableQuestionIconLock() {
+		questionIcon [1].enabled = true;
+	}
+
+	void disableQuestionIconInterrogation() {
+		questionIcon [2].enabled = false;
+	}
+	
+	void disableQuestionIconLock() {
+		questionIcon [1].enabled = false;
 	}
 }

@@ -48,7 +48,7 @@ public class StarQuestionLogicScript : FacadeMonoBehaviour {
 			// dispatch event to start question
 			_dispatcher.Dispatch ("question_loaded", question);
 			// fadeout panel
-			Utils.fadeOutPanel (this, panel, 1f, executeQuestion);
+			Utils.fadeOutPanel (this, panel, Properties.starQuestionFadeInOutDuration, executeQuestion);
 		}, 
 		delay);
 	}
@@ -66,9 +66,9 @@ public class StarQuestionLogicScript : FacadeMonoBehaviour {
 		// show panel
 		Utils.delayAction (this, () => {
 			// fadein panel
-			Utils.fadeInPanel (this, panel, 1f, () => {});
+			Utils.fadeInPanel (this, panel, Properties.starQuestionFadeInOutDuration, () => {});
 		}, 
-		1f);
+		Properties.starQuestionStartDelay);
 	}
 	
 	void closePanel() {
