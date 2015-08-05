@@ -50,8 +50,8 @@ namespace com.lovelydog
 					{"ENGLISH_LOCALE_BUTTON", "Inglés"},
 					{"CONTRIBUTE_BUTTON_APP", "Añade un reto"},
 					{"CONTRIBUTE_BUTTON_WEB", "Abre la web"},
-					{"LOGOUT_BUTTON", "Logout"},
-					{"CONTRIBUTE_TEXT", "¿Quieres que tus frases favoritas aparezcan en el juego?\n¡Envíanoslas y te añadiremos en los creditos!"},
+					{"LOGOUT_BUTTON", "Cambiar usuario"},
+					{"CONTRIBUTE_TEXT", "¿Quieres que tus frases favoritas aparezcan en el juego?\n¡Nos encantaría escucharlas!"},
 					{"GAME_TITLE", "Desafío de Películas"},
 					{"NEW_USER_BUTTON", "Crear nuevo usuario"},
 					{"LOGIN_BUTTON", "Login"},
@@ -70,6 +70,14 @@ namespace com.lovelydog
 					{"MESSAGE_TITLE_ERROR", "Ups!"},
 					{"MESSAGE_NEW_CHALLENGE_OK", "Se ha enviado el nuevo desafío correctamente."},
 					{"MESSAGE_NEW_CHALLENGE_ERROR", "Ha habido un error al enviar el desafío, por favor comprueba que has introducido todos los campos correctamente y has elegido una categoría. Gracias por contribuir a mejorar el juego."},
+					{"RANK_0", "Novato"},
+					{"RANK_1", "Aprendiz"},
+					{"RANK_2", "Principiante"},
+					{"RANK_3", "Avanzado"},
+					{"RANK_4", "Experto"},
+					{"RANK_5", "Élite"},
+					{"RANK_6", "Maestro"},
+					{"RANK_7", "Campeón"},
 				}
 			);
 			tags.Add (
@@ -112,8 +120,8 @@ namespace com.lovelydog
 					{"ENGLISH_LOCALE_BUTTON", "English"},
 					{"CONTRIBUTE_BUTTON_APP", "Add a challenge"},
 					{"CONTRIBUTE_BUTTON_WEB", "Open web"},
-					{"LOGOUT_BUTTON", "Logout"},
-					{"CONTRIBUTE_TEXT", "Do you want your favorite movie quotes to appear on the game?\nSend them and we will add your name to the credits!"},
+					{"LOGOUT_BUTTON", "Change user"},
+					{"CONTRIBUTE_TEXT", "Do you want your favorite movie quotes to appear on the game?\nWe would love to hear them!"},
 					{"GAME_TITLE", "Movies Challenge"},
 					{"NEW_USER_BUTTON", "Create new user"},
 					{"LOGIN_BUTTON", "Login"},
@@ -132,6 +140,14 @@ namespace com.lovelydog
 					{"MESSAGE_TITLE_ERROR", "Oops!"},
 					{"MESSAGE_NEW_CHALLENGE_OK", "The new challenge has been send successfuly."},
 					{"MESSAGE_NEW_CHALLENGE_ERROR", "An error has occurred while sending the challenge, please make sure that all the field have valid values and that a category is chosen. Thank you for improving the game!"},
+					{"RANK_0", "Newbie"},
+					{"RANK_1", "Apprentice"},
+					{"RANK_2", "Beginner"},
+					{"RANK_3", "Proficient"},
+					{"RANK_4", "Expert"},
+					{"RANK_5", "Elite"},
+					{"RANK_6", "Master"},
+					{"RANK_7", "Champion"},
 				}
 			);
 		}

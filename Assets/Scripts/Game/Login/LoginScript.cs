@@ -12,6 +12,7 @@ public class LoginScript : FacadeMonoBehaviour {
 	Authenticate auth = new Authenticate ();
 
 	void Awake () {
+		Debug.Log (SystemInfo.deviceUniqueIdentifier);
 		//PlayerPrefs.SetString ("token", ""); //TODO: remove this, it-s just for testing (dirty)
 		if (!string.IsNullOrEmpty (PlayerPrefs.GetString ("token"))) {
 			// if we already have an authenticated token, load the MainMenu
