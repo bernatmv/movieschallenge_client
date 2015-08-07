@@ -61,30 +61,65 @@ public class GamesLoader : FacadeMonoBehaviour {
 	}
 
 	void buildGamesList(GameModel[] games) {
+		string username = PlayerPrefs.GetString ("username");
+		int count = 0;
+		float yPos = -100f;
 		cleanContent ();
 		// resize scroll content
 		_dispatcher.Dispatch ("resize_scroll_content", new PayloadObject(games.Length));
 		// build list
 		RectTransform gameCanvas;
 		for (int i = 0, l = games.Length; i < l; i++) {
-			if (games[i].ended) {
-				gameCanvas = Instantiate (oldGamePrefab, new Vector2 (-5f, -290 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
+			if (!games[i].ended
+			    && games[i].thisTurn == username) {
+				if (i == 0) {
+					yPos += -60f;
+				}
+				yPos += -190f;
+				gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, yPos), Quaternion.Euler(Vector2.zero)) as RectTransform;
+				gameCanvas.transform.SetParent(gameParent.transform, false);
+				setGameInfo(games[i], gameCanvas);
+				count++;
 			}
-			else {
-				gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, -290 -(190f * i)), Quaternion.Euler(Vector2.zero)) as RectTransform;
-			}
-			gameCanvas.transform.SetParent(gameParent.transform, false);
-			// set payload
-			setPayload(games[i], gameCanvas);
-			// set the current turn
-			setTurn(games[i], gameCanvas);
-			// set players names
-			setPlayersNames(games[i], gameCanvas);
-			// update categories progress
-			setPlayersCategories(games[i], gameCanvas);
-			// mark player layer
-			markPlayerLayer(games[i], gameCanvas);
 		}
+		for (int i = 0, l = games.Length; i < l; i++) {
+			if (!games[i].ended
+			    && games[i].thisTurn != username) {
+				if (i == 0) {
+					yPos += -60f;
+				}
+				yPos += -190f;
+				gameCanvas = Instantiate (activeGamePrefab, new Vector2 (-5f, yPos), Quaternion.Euler(Vector2.zero)) as RectTransform;
+				gameCanvas.transform.SetParent(gameParent.transform, false);
+				setGameInfo(games[i], gameCanvas);
+				count++;
+			}
+		}
+		for (int i = 0, l = games.Length; i < l; i++) {
+			if (games[i].ended) {
+				if (i == 0) {
+					yPos += -60f;
+				}
+				yPos += -190f;
+				gameCanvas = Instantiate (oldGamePrefab, new Vector2 (-5f, yPos), Quaternion.Euler(Vector2.zero)) as RectTransform;
+				gameCanvas.transform.SetParent(gameParent.transform, false);
+				setGameInfo(games[i], gameCanvas);
+				count++;
+			}
+		}
+	}
+
+	void setGameInfo(GameModel game, RectTransform gameCanvas) {
+		// set payload
+		setPayload(game, gameCanvas);
+		// set the current turn
+		setTurn(game, gameCanvas);
+		// set players names
+		setPlayersNames(game, gameCanvas);
+		// update categories progress
+		setPlayersCategories(game, gameCanvas);
+		// mark player layer
+		markPlayerLayer(game, gameCanvas);
 	}
 
 	void cleanContent() {
